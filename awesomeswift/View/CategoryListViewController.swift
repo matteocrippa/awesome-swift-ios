@@ -12,14 +12,30 @@ class CategoryListViewController: UIViewController {
   
   @IBOutlet weak var table: UITableView!
   
-  fileprivate var searchController = UISearchController()
+  fileprivate let searchController = UISearchController(searchResultsController: nil)
+  fileprivate lazy var refreshControl: UIRefreshControl = {
+    let refreshControl = UIRefreshControl()
+    refreshControl.tintColor = .white
+    refreshControl.addTarget(self, action: #selector(CategoryListViewController.getRemoteData), for: .valueChanged)
+    return refreshControl
+  }()
   
-  fileprivate var categoriesList = [Category]() {
-    // on update
-    didSet {
-      // reload table
-      table.reloadData()
+  /// Returns the list of the current parent directories
+  fileprivate var parentCategories: [Category] {
+    if let data = MemoryDb.shared.data {
+      
+      //filter only categories that are parent (parent == nil)
+      let cats = data.categories.filter({ category -> Bool in
+        return category.parent == nil
+      })
+      
+      // sort by title A-Z
+      return  cats.sorted(by: { (a, b) -> Bool in
+        return a.title < b.title
+      })
     }
+    // if none return empty array
+    return [Category]()
   }
   
   override func viewDidLoad() {
@@ -30,13 +46,25 @@ class CategoryListViewController: UIViewController {
     
     // set searchController
     searchController.delegate = self
-    searchController.searchBar.placeholder = "Filter Categories"
+    searchController.searchBar.placeholder = "Filter categories"
     
-    // add search to new navigation
+    // add refresh control
+    table.addSubview(refreshControl)
+    
+    // set large title
+    navigationController?.navigationBar.prefersLargeTitles = true
+    navigationController?.navigationBar.titleTextAttributes = [
+      NSAttributedStringKey.foregroundColor.rawValue: UIColor.awesomePink
+    ]
+    navigationController?.navigationBar.tintColor = .awesomePink
+    
+    // set extra stuff for navigation bar
     navigationItem.searchController = searchController
+    navigationItem.hidesSearchBarWhenScrolling = false
+    navigationItem.hidesBackButton = true
     
     // force reload data
-    getData()
+    getRemoteData()
   }
   
   override func didReceiveMemoryWarning() {
@@ -57,18 +85,31 @@ extension CategoryListViewController {
   fileprivate func parseJson(from data: Data) {
     do {
       let decoded = try JSONDecoder().decode(Awesome.self, from: data)
+      MemoryDb.shared.data = decoded
+      // force reload table, I would prefer the didSet approach, but this works fine too
+      table.reloadData()
       print("👨‍💻 decoded:", decoded)
     } catch (let error) {
       print("🙅 \(error)")
     }
   }
   
-  fileprivate func getData() {
+  @objc fileprivate func getRemoteData() {
     
+    // start refreshing
+    refreshControl.beginRefreshing()
+    
+    // show latest update
+    refreshControl.attributedTitle = NSAttributedString(string: MemoryDb.shared.lastUpdate.description)
+    
+    // retrieve data from remote
     if let data = AwesomeSwiftApi.getData() {
+      // parse json
       parseJson(from: data)
+      
+      // stop refreshing
+      refreshControl.endRefreshing()
     }
-    
   }
 }
 
@@ -80,11 +121,13 @@ extension CategoryListViewController: UISearchControllerDelegate {
 // MARK: - UITableView Data Source
 extension CategoryListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return parentCategories.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+    cell.textLabel?.text = parentCategories[indexPath.row].title
+    return cell
   }
   
 }

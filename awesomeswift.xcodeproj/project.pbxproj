@@ -16,6 +16,8 @@
 		48D2AEB61EED991E003EA135 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEB51EED991E003EA135 /* CategoryListViewController.swift */; };
 		48D2AEB91EED9A6B003EA135 /* AwesomeSwiftApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEB81EED9A6B003EA135 /* AwesomeSwiftApi.swift */; };
 		48D2AEBB1EED9F1B003EA135 /* Awesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEBA1EED9F1B003EA135 /* Awesome.swift */; };
+		48D2AEBD1EEDCD00003EA135 /* MemoryDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEBC1EEDCD00003EA135 /* MemoryDb.swift */; };
+		48D2AEBF1EEDD791003EA135 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEBE1EEDD791003EA135 /* UIColor+Extension.swift */; };
 		EB27039AA765966B57D178C1 /* Pods_awesomeswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D04FFE14CC53A48D49E4FAE /* Pods_awesomeswift.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		48D2AEB51EED991E003EA135 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
 		48D2AEB81EED9A6B003EA135 /* AwesomeSwiftApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeSwiftApi.swift; sourceTree = "<group>"; };
 		48D2AEBA1EED9F1B003EA135 /* Awesome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Awesome.swift; sourceTree = "<group>"; };
+		48D2AEBC1EEDCD00003EA135 /* MemoryDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDb.swift; sourceTree = "<group>"; };
+		48D2AEBE1EEDD791003EA135 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		CF3ECE2B1820D5363F31EDD7 /* Pods-awesomeswift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-awesomeswift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-awesomeswift/Pods-awesomeswift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +98,7 @@
 				48D2AEA41EED94D9003EA135 /* Assets.xcassets */,
 				48D2AEA61EED94D9003EA135 /* LaunchScreen.storyboard */,
 				48D2AEA91EED94D9003EA135 /* Info.plist */,
+				48D2AEBE1EEDD791003EA135 /* UIColor+Extension.swift */,
 			);
 			path = awesomeswift;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 				48D2AEB01EED977E003EA135 /* Project.swift */,
 				48D2AEB21EED97F6003EA135 /* Category.swift */,
 				48D2AEBA1EED9F1B003EA135 /* Awesome.swift */,
+				48D2AEBC1EEDCD00003EA135 /* MemoryDb.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,9 +255,11 @@
 				48D2AEB61EED991E003EA135 /* CategoryListViewController.swift in Sources */,
 				48D2AE9E1EED94D9003EA135 /* AppDelegate.swift in Sources */,
 				48D2AEB11EED977E003EA135 /* Project.swift in Sources */,
+				48D2AEBD1EEDCD00003EA135 /* MemoryDb.swift in Sources */,
 				48D2AEBB1EED9F1B003EA135 /* Awesome.swift in Sources */,
 				48D2AEB91EED9A6B003EA135 /* AwesomeSwiftApi.swift in Sources */,
 				48D2AEB31EED97F6003EA135 /* Category.swift in Sources */,
+				48D2AEBF1EEDD791003EA135 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
