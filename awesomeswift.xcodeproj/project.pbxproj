@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		48D2AE9E1EED94D9003EA135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AE9D1EED94D9003EA135 /* AppDelegate.swift */; };
-		48D2AEA01EED94D9003EA135 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AE9F1EED94D9003EA135 /* ViewController.swift */; };
 		48D2AEA31EED94D9003EA135 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEA11EED94D9003EA135 /* Main.storyboard */; };
 		48D2AEA51EED94D9003EA135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEA41EED94D9003EA135 /* Assets.xcassets */; };
 		48D2AEA81EED94D9003EA135 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEA61EED94D9003EA135 /* LaunchScreen.storyboard */; };
+		48D2AEB11EED977E003EA135 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEB01EED977E003EA135 /* Project.swift */; };
+		48D2AEB31EED97F6003EA135 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEB21EED97F6003EA135 /* Category.swift */; };
+		48D2AEB61EED991E003EA135 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEB51EED991E003EA135 /* CategoryListViewController.swift */; };
+		48D2AEB91EED9A6B003EA135 /* AwesomeSwiftApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEB81EED9A6B003EA135 /* AwesomeSwiftApi.swift */; };
+		48D2AEBB1EED9F1B003EA135 /* Awesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEBA1EED9F1B003EA135 /* Awesome.swift */; };
+		EB27039AA765966B57D178C1 /* Pods_awesomeswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D04FFE14CC53A48D49E4FAE /* Pods_awesomeswift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D04FFE14CC53A48D49E4FAE /* Pods_awesomeswift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_awesomeswift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46BFFE07F8394E09AB853ECD /* Pods-awesomeswift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-awesomeswift.release.xcconfig"; path = "Pods/Target Support Files/Pods-awesomeswift/Pods-awesomeswift.release.xcconfig"; sourceTree = "<group>"; };
 		48D2AE9A1EED94D9003EA135 /* awesomeswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = awesomeswift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D2AE9D1EED94D9003EA135 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		48D2AE9F1EED94D9003EA135 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		48D2AEA21EED94D9003EA135 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		48D2AEA41EED94D9003EA135 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48D2AEA71EED94D9003EA135 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48D2AEA91EED94D9003EA135 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48D2AEB01EED977E003EA135 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		48D2AEB21EED97F6003EA135 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		48D2AEB51EED991E003EA135 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
+		48D2AEB81EED9A6B003EA135 /* AwesomeSwiftApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeSwiftApi.swift; sourceTree = "<group>"; };
+		48D2AEBA1EED9F1B003EA135 /* Awesome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Awesome.swift; sourceTree = "<group>"; };
+		CF3ECE2B1820D5363F31EDD7 /* Pods-awesomeswift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-awesomeswift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-awesomeswift/Pods-awesomeswift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB27039AA765966B57D178C1 /* Pods_awesomeswift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27C3FBD0A4163945CAB2456A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF3ECE2B1820D5363F31EDD7 /* Pods-awesomeswift.debug.xcconfig */,
+				46BFFE07F8394E09AB853ECD /* Pods-awesomeswift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		41C0647CE32D2E680E172060 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D04FFE14CC53A48D49E4FAE /* Pods_awesomeswift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		48D2AE911EED94D9003EA135 = {
 			isa = PBXGroup;
 			children = (
 				48D2AE9C1EED94D9003EA135 /* awesomeswift */,
 				48D2AE9B1EED94D9003EA135 /* Products */,
+				27C3FBD0A4163945CAB2456A /* Pods */,
+				41C0647CE32D2E680E172060 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +86,42 @@
 		48D2AE9C1EED94D9003EA135 /* awesomeswift */ = {
 			isa = PBXGroup;
 			children = (
+				48D2AEB71EED9A57003EA135 /* Network */,
+				48D2AEB41EED9900003EA135 /* View */,
+				48D2AEAF1EED9771003EA135 /* Model */,
 				48D2AE9D1EED94D9003EA135 /* AppDelegate.swift */,
-				48D2AE9F1EED94D9003EA135 /* ViewController.swift */,
 				48D2AEA11EED94D9003EA135 /* Main.storyboard */,
 				48D2AEA41EED94D9003EA135 /* Assets.xcassets */,
 				48D2AEA61EED94D9003EA135 /* LaunchScreen.storyboard */,
 				48D2AEA91EED94D9003EA135 /* Info.plist */,
 			);
 			path = awesomeswift;
+			sourceTree = "<group>";
+		};
+		48D2AEAF1EED9771003EA135 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48D2AEB01EED977E003EA135 /* Project.swift */,
+				48D2AEB21EED97F6003EA135 /* Category.swift */,
+				48D2AEBA1EED9F1B003EA135 /* Awesome.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		48D2AEB41EED9900003EA135 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48D2AEB51EED991E003EA135 /* CategoryListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48D2AEB71EED9A57003EA135 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				48D2AEB81EED9A6B003EA135 /* AwesomeSwiftApi.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +131,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48D2AEAC1EED94D9003EA135 /* Build configuration list for PBXNativeTarget "awesomeswift" */;
 			buildPhases = (
+				37537659DA8A19AA49D42588 /* [CP] Check Pods Manifest.lock */,
 				48D2AE961EED94D9003EA135 /* Sources */,
 				48D2AE971EED94D9003EA135 /* Frameworks */,
 				48D2AE981EED94D9003EA135 /* Resources */,
+				9CEDFA39D28F75EDAF809240 /* [CP] Embed Pods Frameworks */,
+				B9DC518F8A05F720E3526888 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,13 +193,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		37537659DA8A19AA49D42588 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9CEDFA39D28F75EDAF809240 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-awesomeswift/Pods-awesomeswift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9DC518F8A05F720E3526888 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-awesomeswift/Pods-awesomeswift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		48D2AE961EED94D9003EA135 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48D2AEA01EED94D9003EA135 /* ViewController.swift in Sources */,
+				48D2AEB61EED991E003EA135 /* CategoryListViewController.swift in Sources */,
 				48D2AE9E1EED94D9003EA135 /* AppDelegate.swift in Sources */,
+				48D2AEB11EED977E003EA135 /* Project.swift in Sources */,
+				48D2AEBB1EED9F1B003EA135 /* Awesome.swift in Sources */,
+				48D2AEB91EED9A6B003EA135 /* AwesomeSwiftApi.swift in Sources */,
+				48D2AEB31EED97F6003EA135 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +297,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -237,6 +354,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -267,6 +386,7 @@
 		};
 		48D2AEAD1EED94D9003EA135 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF3ECE2B1820D5363F31EDD7 /* Pods-awesomeswift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = F9FTQCB4H8;
@@ -281,6 +401,7 @@
 		};
 		48D2AEAE1EED94D9003EA135 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46BFFE07F8394E09AB853ECD /* Pods-awesomeswift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = F9FTQCB4H8;
@@ -312,6 +433,7 @@
 				48D2AEAE1EED94D9003EA135 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
