@@ -21,15 +21,15 @@ class CategoryListViewController: UIViewController {
     }
   }
   fileprivate var filteredResults = Results([], [])
+  
   fileprivate let searchController = UISearchController(searchResultsController: nil)
   fileprivate lazy var refreshControl: UIRefreshControl = {
     let refreshControl = UIRefreshControl()
-    refreshControl.tintColor = .white
+    refreshControl.tintColor = .awesomePink
     refreshControl.addTarget(self, action: #selector(CategoryListViewController.getRemoteData), for: .valueChanged)
     return refreshControl
   }()
   fileprivate var isSearchActive: Bool {
-    //return searchController.isActive && searchController.searchBar.text != nil
     return filteredResults.0.count > 0 || filteredResults.1.count > 0
   }
   
@@ -47,7 +47,7 @@ class CategoryListViewController: UIViewController {
       title = "Awesome Swift"
       
       // add refresh control
-      table.addSubview(refreshControl)
+      table.refreshControl = refreshControl
     }
     
     // set large title
