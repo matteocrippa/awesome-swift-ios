@@ -20,6 +20,7 @@ class CategoryListViewController: UIViewController {
       table.reloadData()
     }
   }
+  fileprivate var filteredCategories = [Category]()
   fileprivate let searchController = UISearchController(searchResultsController: nil)
   fileprivate lazy var refreshControl: UIRefreshControl = {
     let refreshControl = UIRefreshControl()
@@ -32,10 +33,11 @@ class CategoryListViewController: UIViewController {
     super.viewDidLoad()
     
     // set searchController
-    searchController.delegate = self
+    searchController.searchResultsUpdater = self
     searchController.searchBar.placeholder = "Filter categories"
+    searchController.searchBar.tintColor = .awesomePink
     
-    // if we are at root
+    // if we are at root level
     if parentCategory == nil {
       // set title
       title = "Awesome Swift"
@@ -127,21 +129,45 @@ extension CategoryListViewController {
   }
 }
 
-// MARK: - UISearchController Delegate
-extension CategoryListViewController: UISearchControllerDelegate {
-  
+
+// MARK: - UISearchBar Delegate
+extension CategoryListViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    if searchController.isActive {
+      // get current text or force to empty
+      let searchText = searchController.searchBar.text ?? ""
+      
+      // clear filtered first
+      filteredCategories.removeAll()
+      
+      // if search has at least a character
+      if searchText.count > 0 {
+        filteredCategories = categories.filter({ item -> Bool in
+          return item.title.lowercased().contains(searchText.lowercased())
+        })
+      }
+      
+      // always reload table at the end
+      table.reloadData()
+      
+    }
+  }
 }
 
 // MARK: - UITableView Data Source
 extension CategoryListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return categories.count
+    // return filtered or categories according filter is active
+    return filteredCategories.count > 0 ? filteredCategories.count : categories.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CategoryTableViewCell
+    // get category
+    let category = filteredCategories.count > 0 ? filteredCategories[indexPath.row] : categories[indexPath.row]
     // setup category with proper method
-    cell.setup(with: categories[indexPath.row])
+    cell.setup(with: category)
+    // return cell
     return cell
   }
   
@@ -150,14 +176,29 @@ extension CategoryListViewController: UITableViewDataSource {
 // MARK: - UITableView Deleage
 extension CategoryListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    // get current category
+    let category = filteredCategories.count > 0 ? filteredCategories[indexPath.row] : categories[indexPath.row]
+    
     // check if we have subcategories
     if let subCategories = categories[indexPath.row].subCategories, subCategories.count > 0 {
+      // get category view controller
       let vc = UIStoryboard(name: "Category", bundle: nil).instantiateViewController(withIdentifier: "CategoryList") as! CategoryListViewController
-      vc.title = categories[indexPath.row].title
-      vc.parentCategory = categories[indexPath.row].id
+      // pass paramters for customizarion
+      // set title of the view according current category title
+      vc.title = category.title
+      // pass current category id for filtering
+      vc.parentCategory = category.id
+      // push the vc
       navigationController?.pushViewController(vc, animated: true)
     } else { // otherwise show repos
-      //performSegue(withIdentifier: "showProjects", sender: self)
+      let vc = UIStoryboard(name: "Project", bundle: nil).instantiateViewController(withIdentifier: "ProjectList") as! ProjectListViewController
+      vc.title = category.title
+      // push the vc
+      navigationController?.pushViewController(vc, animated: true)
     }
+    
+    // force deselect row
+    tableView.deselectRow(at: indexPath, animated: true)
   }
 }
