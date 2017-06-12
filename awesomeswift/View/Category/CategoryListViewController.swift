@@ -20,7 +20,7 @@ class CategoryListViewController: UIViewController {
       table.reloadData()
     }
   }
-  fileprivate var filteredResults = [Results]()
+  fileprivate var filteredResults = Results([], [])
   fileprivate let searchController = UISearchController(searchResultsController: nil)
   fileprivate lazy var refreshControl: UIRefreshControl = {
     let refreshControl = UIRefreshControl()
@@ -84,7 +84,7 @@ extension CategoryListViewController {
       MemoryDb.shared.data = decoded
       // get all results for root
       results = getResults(for: nil)
-      print("👨‍💻 decoded:", decoded)
+      //print("👨‍💻 decoded:", decoded)
     } catch (let error) {
       print("🙅 \(error)")
     }
@@ -145,6 +145,9 @@ extension CategoryListViewController {
 // MARK: - UISearchBar Delegate
 extension CategoryListViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
+    
+    // TODO: need to check inside everything
+    
     /*if searchController.isActive {
       // get current text or force to empty
       let searchText = searchController.searchBar.text ?? ""
@@ -171,32 +174,20 @@ extension CategoryListViewController: UITableViewDataSource {
   
   func numberOfSections(in tableView: UITableView) -> Int {
     // check if we have any project
-    return results.1.count == 0 ? 1 : 2
+    return (searchController.isActive && filteredResults.1.count == 0) ? 1 :2
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
     switch section {
     case 0:
-      return results.0.count
+      return searchController.isActive ? filteredResults.0.count : results.0.count
     case 1:
-      return results.1.count
+      return searchController.isActive ? filteredResults.1.count : results.1.count
     default:
       return 0
     }
     
-    // category
-//    if section == 0 {
-//      // return filtered or categories according filter is active
-//      return filteredCategories.count > 0 ? filteredCategories.count : categories.count
-//    } else if section == 1 { // projects
-//      if categories.count == 1, let projects = categories[0].projects {
-//        // return projects
-//        return projects.count
-//      }
-//    }
-//    // otherwise force 0
-//    return 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -205,16 +196,13 @@ extension CategoryListViewController: UITableViewDataSource {
     switch indexPath.section {
     case 0:
       // get category
-      //let category = filteredCategories.count > 0 ? filteredCategories[indexPath.row] : categories[indexPath.row]
-      let category = results.0[indexPath.row]
+      let category = searchController.isActive ? filteredResults.0[indexPath.row] : results.0[indexPath.row]
       // generate cell
       return prepareCategoryCell(with: category, at: indexPath)
     case 1:
       // get project
-      //if let project = filteredCategories.count > 0 ? filteredCategories[0].projects?[indexPath.row] : categories[0].projects?[indexPath.row] {
-      let project = results.1[indexPath.row]
+      let project = searchController.isActive ? filteredResults.1[indexPath.row] : results.1[indexPath.row]
       return prepareProjectCell(with: project, at: indexPath)
-      //}
       
     default:
       return UITableViewCell()
