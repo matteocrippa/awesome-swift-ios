@@ -25,7 +25,19 @@ class CategoryTableViewCell: UITableViewCell {
     self.category = category
     
     // set UI
-    textLabel?.text = category.title
+    textLabel?.text = "\(category.title)"
+    
+    // if we have a subcat
+    if let subCats = category.subCategories, subCats.count > 0 {
+      // append to label
+      textLabel?.text = textLabel?.text?.appending(" ▼")
+    }
+    
+    // if we have projects
+    if let projects = category.projects, projects.count > 0 {
+      // append to label
+      textLabel?.text = textLabel?.text?.appending(" (\(projects.count))")
+    }
   }
   
 }

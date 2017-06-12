@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		486D90CC1EEEC6570045CB6C /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D90CB1EEEC6570045CB6C /* ProjectTableViewCell.swift */; };
 		48D2AE9E1EED94D9003EA135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AE9D1EED94D9003EA135 /* AppDelegate.swift */; };
 		48D2AEA31EED94D9003EA135 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEA11EED94D9003EA135 /* Category.storyboard */; };
 		48D2AEA51EED94D9003EA135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEA41EED94D9003EA135 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		1D04FFE14CC53A48D49E4FAE /* Pods_awesomeswift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_awesomeswift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BFFE07F8394E09AB853ECD /* Pods-awesomeswift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-awesomeswift.release.xcconfig"; path = "Pods/Target Support Files/Pods-awesomeswift/Pods-awesomeswift.release.xcconfig"; sourceTree = "<group>"; };
+		486D90CB1EEEC6570045CB6C /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
 		48D2AE9A1EED94D9003EA135 /* awesomeswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = awesomeswift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D2AE9D1EED94D9003EA135 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48D2AEA21EED94D9003EA135 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Category.storyboard; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				48F15DF51EEE953B0009D074 /* CategoryTableViewCell.swift */,
+				486D90CB1EEEC6570045CB6C /* ProjectTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				48D2AEBD1EEDCD00003EA135 /* MemoryDb.swift in Sources */,
 				48D2AEBB1EED9F1B003EA135 /* Awesome.swift in Sources */,
 				48D2AEB91EED9A6B003EA135 /* AwesomeSwiftApi.swift in Sources */,
+				486D90CC1EEEC6570045CB6C /* ProjectTableViewCell.swift in Sources */,
 				48D2AEB31EED97F6003EA135 /* Category.swift in Sources */,
 				48D2AEBF1EEDD791003EA135 /* UIColor+Extension.swift in Sources */,
 				48D2AEC81EEDE55E003EA135 /* ProjectDetailViewController.swift in Sources */,
