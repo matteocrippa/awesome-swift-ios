@@ -257,8 +257,15 @@ extension CategoryListViewController: UITableViewDelegate {
       navigationController?.pushViewController(vc, animated: true)
       
     case 1:
-      // TODO: add open project details
-      break
+      let project = results.1[indexPath.row]
+      
+      let vc = UIStoryboard(name: "Project", bundle: nil).instantiateInitialViewController() as! ProjectDetailViewController
+      // set title of view
+      vc.title = project.title
+      // pass project info
+      vc.project = project
+      // push the vc
+      navigationController?.pushViewController(vc, animated: true)
       
     default:
       break

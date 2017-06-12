@@ -12,6 +12,6 @@ struct Project: Codable {
   let title: String
   let category: String
   let description: String
-  let homepage: String
+  let homepage: URL
   let tags: [String]?
 }

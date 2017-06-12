@@ -18,4 +18,15 @@ class AwesomeSwiftApi {
       return nil
     }
   }
+  
+  class func getProjectReadme(url: URL) -> String? {
+    do {
+      let newURL = url.absoluteString.replacingOccurrences(of: "https://github.com/", with: "https://raw.githubusercontent.com/").appending("/master/README.md")
+      let data = try Data(contentsOf: URL(string: newURL)!)
+      return String(data: data, encoding: .utf8)
+    } catch (let error) {
+      print("🙅 \(error)")
+      return nil
+    }
+  }
 }
