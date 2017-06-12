@@ -121,7 +121,7 @@ extension CategoryListViewController {
       
       // sort by title A-Z
       cats = cats.sorted(by: { (a, b) -> Bool in
-        return a.title < b.title
+        return a.title.lowercased() < b.title.lowercased()
       })
       
       // filter only projects that have parent
@@ -131,7 +131,7 @@ extension CategoryListViewController {
       
       // sort by title A-Z
       projects = projects.sorted(by: { (a, b) -> Bool in
-        return a.title < b.title
+        return a.title.lowercased() < b.title.lowercased()
       })
       
       return Results(cats, projects)
