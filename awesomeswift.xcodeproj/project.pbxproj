@@ -18,6 +18,10 @@
 		48D2AEBB1EED9F1B003EA135 /* Awesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEBA1EED9F1B003EA135 /* Awesome.swift */; };
 		48D2AEBD1EEDCD00003EA135 /* MemoryDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEBC1EEDCD00003EA135 /* MemoryDb.swift */; };
 		48D2AEBF1EEDD791003EA135 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEBE1EEDD791003EA135 /* UIColor+Extension.swift */; };
+		48D2AEC41EEDE515003EA135 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEC31EEDE515003EA135 /* Project.storyboard */; };
+		48D2AEC61EEDE553003EA135 /* ProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEC51EEDE553003EA135 /* ProjectListViewController.swift */; };
+		48D2AEC81EEDE55E003EA135 /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEC71EEDE55E003EA135 /* ProjectDetailViewController.swift */; };
+		48F15DF61EEE953B0009D074 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F15DF51EEE953B0009D074 /* CategoryTableViewCell.swift */; };
 		EB27039AA765966B57D178C1 /* Pods_awesomeswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D04FFE14CC53A48D49E4FAE /* Pods_awesomeswift.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +41,10 @@
 		48D2AEBA1EED9F1B003EA135 /* Awesome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Awesome.swift; sourceTree = "<group>"; };
 		48D2AEBC1EEDCD00003EA135 /* MemoryDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDb.swift; sourceTree = "<group>"; };
 		48D2AEBE1EEDD791003EA135 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		48D2AEC31EEDE515003EA135 /* Project.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Project.storyboard; sourceTree = "<group>"; };
+		48D2AEC51EEDE553003EA135 /* ProjectListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewController.swift; sourceTree = "<group>"; };
+		48D2AEC71EEDE55E003EA135 /* ProjectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewController.swift; sourceTree = "<group>"; };
+		48F15DF51EEE953B0009D074 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		CF3ECE2B1820D5363F31EDD7 /* Pods-awesomeswift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-awesomeswift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-awesomeswift/Pods-awesomeswift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				48D2AEC01EEDE46D003EA135 /* Category */,
+				48D2AEC21EEDE4FE003EA135 /* Project */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -132,8 +141,9 @@
 		48D2AEC01EEDE46D003EA135 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				48F15DF41EEE952B0009D074 /* Cell */,
 				48D2AEA11EED94D9003EA135 /* Category.storyboard */,
-				48D2AEB51EED991E003EA135 /* CategoryListViewController.swift */,
+				48F15DF21EEE950E0009D074 /* List */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -144,6 +154,32 @@
 				48D2AEBE1EEDD791003EA135 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		48D2AEC21EEDE4FE003EA135 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				48D2AEC31EEDE515003EA135 /* Project.storyboard */,
+				48D2AEC51EEDE553003EA135 /* ProjectListViewController.swift */,
+				48D2AEC71EEDE55E003EA135 /* ProjectDetailViewController.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		48F15DF21EEE950E0009D074 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				48D2AEB51EED991E003EA135 /* CategoryListViewController.swift */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		48F15DF41EEE952B0009D074 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				48F15DF51EEE953B0009D074 /* CategoryTableViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48D2AEC41EEDE515003EA135 /* Project.storyboard in Resources */,
 				48D2AEA81EED94D9003EA135 /* LaunchScreen.storyboard in Resources */,
 				48D2AEA51EED94D9003EA135 /* Assets.xcassets in Resources */,
 				48D2AEA31EED94D9003EA135 /* Category.storyboard in Resources */,
@@ -270,12 +307,15 @@
 			files = (
 				48D2AEB61EED991E003EA135 /* CategoryListViewController.swift in Sources */,
 				48D2AE9E1EED94D9003EA135 /* AppDelegate.swift in Sources */,
+				48D2AEC61EEDE553003EA135 /* ProjectListViewController.swift in Sources */,
 				48D2AEB11EED977E003EA135 /* Project.swift in Sources */,
 				48D2AEBD1EEDCD00003EA135 /* MemoryDb.swift in Sources */,
 				48D2AEBB1EED9F1B003EA135 /* Awesome.swift in Sources */,
 				48D2AEB91EED9A6B003EA135 /* AwesomeSwiftApi.swift in Sources */,
 				48D2AEB31EED97F6003EA135 /* Category.swift in Sources */,
 				48D2AEBF1EEDD791003EA135 /* UIColor+Extension.swift in Sources */,
+				48D2AEC81EEDE55E003EA135 /* ProjectDetailViewController.swift in Sources */,
+				48F15DF61EEE953B0009D074 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
