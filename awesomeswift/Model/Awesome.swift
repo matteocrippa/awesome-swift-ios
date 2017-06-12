@@ -16,3 +16,6 @@ struct Awesome: Codable {
   let categories: [Category]
   let projects: [Project]
 }
+
+// helps in speed up purposes to show data rending and for better searches
+typealias Results = ([Category], [Project])

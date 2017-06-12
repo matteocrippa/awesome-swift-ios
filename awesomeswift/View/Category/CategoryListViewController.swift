@@ -15,12 +15,12 @@ class CategoryListViewController: UIViewController {
   var parentCategory: String?
   
   /// private
-  fileprivate var categories = [Category]() {
+  fileprivate var results = Results([], []) {
     didSet {
       table.reloadData()
     }
   }
-  fileprivate var filteredCategories = [Category]()
+  fileprivate var filteredResults = [Results]()
   fileprivate let searchController = UISearchController(searchResultsController: nil)
   fileprivate lazy var refreshControl: UIRefreshControl = {
     let refreshControl = UIRefreshControl()
@@ -65,7 +65,7 @@ class CategoryListViewController: UIViewController {
       getRemoteData()
     } else {
       // get local data
-      categories = getCategories(with: parentCategory)
+      results = getResults(for: parentCategory)
     }
   }
   
@@ -82,8 +82,8 @@ extension CategoryListViewController {
     do {
       let decoded = try JSONDecoder().decode(Awesome.self, from: data)
       MemoryDb.shared.data = decoded
-      // get all categories for root
-      categories = getCategories(with: nil)
+      // get all results for root
+      results = getResults(for: nil)
       print("👨‍💻 decoded:", decoded)
     } catch (let error) {
       print("🙅 \(error)")
@@ -111,29 +111,41 @@ extension CategoryListViewController {
 
 // MARK: - Database (Memory)
 extension CategoryListViewController {
-  func getCategories(with parent: String?) -> [Category]{
+  
+  func getResults(for parent: String?) -> Results {
     if let data = MemoryDb.shared.data {
-      
-      // filter only categories that are parent (parent == nil)
-      let cats = data.categories.filter({ category -> Bool in
+      // filter only categories that have parent
+      var cats = data.categories.filter({ category -> Bool in
         return category.parent == parent
       })
       
       // sort by title A-Z
-      return  cats.sorted(by: { (a, b) -> Bool in
+      cats = cats.sorted(by: { (a, b) -> Bool in
         return a.title < b.title
       })
+      
+      // filter only projects that have parent
+      var projects = data.projects.filter({ proj -> Bool in
+        return proj.category == parent
+      })
+      
+      // sort by title A-Z
+      projects = projects.sorted(by: { (a, b) -> Bool in
+        return a.title < b.title
+      })
+      
+      return Results(cats, projects)
     }
-    // if none return empty array
-    return [Category]()
+    return Results([], [])
   }
+  
 }
 
 
 // MARK: - UISearchBar Delegate
 extension CategoryListViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
-    if searchController.isActive {
+    /*if searchController.isActive {
       // get current text or force to empty
       let searchText = searchController.searchBar.text ?? ""
       
@@ -150,38 +162,92 @@ extension CategoryListViewController: UISearchResultsUpdating {
       // always reload table at the end
       table.reloadData()
       
-    }
+    }*/
   }
 }
 
 // MARK: - UITableView Data Source
 extension CategoryListViewController: UITableViewDataSource {
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    // check if we have any project
+    return results.1.count == 0 ? 1 : 2
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    // return filtered or categories according filter is active
-    return filteredCategories.count > 0 ? filteredCategories.count : categories.count
+    
+    switch section {
+    case 0:
+      return results.0.count
+    case 1:
+      return results.1.count
+    default:
+      return 0
+    }
+    
+    // category
+//    if section == 0 {
+//      // return filtered or categories according filter is active
+//      return filteredCategories.count > 0 ? filteredCategories.count : categories.count
+//    } else if section == 1 { // projects
+//      if categories.count == 1, let projects = categories[0].projects {
+//        // return projects
+//        return projects.count
+//      }
+//    }
+//    // otherwise force 0
+//    return 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CategoryTableViewCell
-    // get category
-    let category = filteredCategories.count > 0 ? filteredCategories[indexPath.row] : categories[indexPath.row]
+    
+    // filter according section
+    switch indexPath.section {
+    case 0:
+      // get category
+      //let category = filteredCategories.count > 0 ? filteredCategories[indexPath.row] : categories[indexPath.row]
+      let category = results.0[indexPath.row]
+      // generate cell
+      return prepareCategoryCell(with: category, at: indexPath)
+    case 1:
+      // get project
+      //if let project = filteredCategories.count > 0 ? filteredCategories[0].projects?[indexPath.row] : categories[0].projects?[indexPath.row] {
+      let project = results.1[indexPath.row]
+      return prepareProjectCell(with: project, at: indexPath)
+      //}
+      
+    default:
+      return UITableViewCell()
+    }
+        
+  }
+  
+  /// Category cell generator
+  fileprivate func prepareCategoryCell(with category: Category, at indexPath: IndexPath) -> CategoryTableViewCell {
+    let cell = table.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CategoryTableViewCell
     // setup category with proper method
     cell.setup(with: category)
     // return cell
     return cell
   }
   
+  /// Project cell generator
+  fileprivate func prepareProjectCell(with project: Project, at indexPath: IndexPath) -> ProjectTableViewCell {
+    let cell = table.dequeueReusableCell(withIdentifier: "projectCell", for: indexPath) as! ProjectTableViewCell
+    // setup project with proper method
+    cell.setup(with: project)
+    // return cell
+    return cell
+  }
 }
 
 // MARK: - UITableView Deleage
 extension CategoryListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-    // get current category
-    let category = filteredCategories.count > 0 ? filteredCategories[indexPath.row] : categories[indexPath.row]
-    
-    // check if we have subcategories
-    if let subCategories = categories[indexPath.row].subCategories, subCategories.count > 0 {
+    switch indexPath.section {
+    case 0:
+      let category = results.0[indexPath.row]
       // get category view controller
       let vc = UIStoryboard(name: "Category", bundle: nil).instantiateViewController(withIdentifier: "CategoryList") as! CategoryListViewController
       // pass paramters for customizarion
@@ -191,11 +257,13 @@ extension CategoryListViewController: UITableViewDelegate {
       vc.parentCategory = category.id
       // push the vc
       navigationController?.pushViewController(vc, animated: true)
-    } else { // otherwise show repos
-      let vc = UIStoryboard(name: "Project", bundle: nil).instantiateViewController(withIdentifier: "ProjectList") as! ProjectListViewController
-      vc.title = category.title
-      // push the vc
-      navigationController?.pushViewController(vc, animated: true)
+      
+    case 1:
+      // TODO: add open project details
+      break
+      
+    default:
+      break
     }
     
     // force deselect row
