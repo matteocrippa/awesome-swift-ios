@@ -21,6 +21,7 @@ struct Project: Codable {
     }
     set {
       UserDefaults.standard.set(newValue, forKey: title)
+      UserDefaults.standard.synchronize()
     }
     
   }
