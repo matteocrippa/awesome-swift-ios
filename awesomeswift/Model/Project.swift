@@ -9,9 +9,9 @@
 import Foundation
 
 struct Project: Codable {
-  var title: String
-  var category: String
-  var description: String
-  var homepage: String
-  var tags: [String]?
+  let title: String
+  let category: String
+  let description: String
+  let homepage: String
+  let tags: [String]?
 }

@@ -9,10 +9,10 @@
 import Foundation
 
 struct Awesome: Codable {
-  var title: String
-  var header: String
-  var header_contributing: String
-  var ios_app_link: String
-  var categories: [Category]
-  var projects: [Project]
+  let title: String
+  let header: String
+  let header_contributing: String
+  let ios_app_link: String
+  let categories: [Category]
+  let projects: [Project]
 }

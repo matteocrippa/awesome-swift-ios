@@ -143,7 +143,7 @@
 			children = (
 				48F15DF41EEE952B0009D074 /* Cell */,
 				48D2AEA11EED94D9003EA135 /* Category.storyboard */,
-				48F15DF21EEE950E0009D074 /* List */,
+				48D2AEB51EED991E003EA135 /* CategoryListViewController.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -164,14 +164,6 @@
 				48D2AEC71EEDE55E003EA135 /* ProjectDetailViewController.swift */,
 			);
 			path = Project;
-			sourceTree = "<group>";
-		};
-		48F15DF21EEE950E0009D074 /* List */ = {
-			isa = PBXGroup;
-			children = (
-				48D2AEB51EED991E003EA135 /* CategoryListViewController.swift */,
-			);
-			name = List;
 			sourceTree = "<group>";
 		};
 		48F15DF41EEE952B0009D074 /* Cell */ = {

@@ -9,10 +9,10 @@
 import Foundation
 
 struct Category: Codable {
-  var title: String
-  var id: String
-  var parent: String? // first level categories has not parent
-  var description: String?
+  let title: String
+  let id: String
+  let parent: String? // first level categories has not parent
+  let description: String?
   
   // improve datamodel with sub categories
   var subCategories: [Category]? {
