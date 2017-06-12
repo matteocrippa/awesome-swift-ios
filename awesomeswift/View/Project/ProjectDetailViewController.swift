@@ -49,7 +49,6 @@ class ProjectDetailViewController: UIViewController {
       
       // set if favorite
       favoriteButton.isSelected = project.isFavorite
-      
     }
     
   }

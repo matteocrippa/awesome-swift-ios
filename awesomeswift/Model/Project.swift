@@ -17,10 +17,10 @@ struct Project: Codable {
   
   var isFavorite: Bool {
     get {
-      return UserDefaults.standard.bool(forKey: title)
+      return UserDefaults.standard.bool(forKey: homepage.absoluteString)
     }
     set {
-      UserDefaults.standard.set(newValue, forKey: title)
+      UserDefaults.standard.set(newValue, forKey: homepage.absoluteString)
       UserDefaults.standard.synchronize()
     }
     
