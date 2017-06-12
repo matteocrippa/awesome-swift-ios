@@ -28,6 +28,10 @@ class CategoryListViewController: UIViewController {
     refreshControl.addTarget(self, action: #selector(CategoryListViewController.getRemoteData), for: .valueChanged)
     return refreshControl
   }()
+  fileprivate var isSearchActive: Bool {
+    //return searchController.isActive && searchController.searchBar.text != nil
+    return filteredResults.0.count > 0 || filteredResults.1.count > 0
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -146,26 +150,32 @@ extension CategoryListViewController {
 extension CategoryListViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     
-    // TODO: need to check inside everything
-    
-    /*if searchController.isActive {
-      // get current text or force to empty
-      let searchText = searchController.searchBar.text ?? ""
+    // check if search is active
+    if searchController.isActive && searchController.searchBar.text != nil {
       
-      // clear filtered first
-      filteredCategories.removeAll()
+      // force clear the results first
+      filteredResults = Results([], [])
       
-      // if search has at least a character
-      if searchText.count > 0 {
-        filteredCategories = categories.filter({ item -> Bool in
-          return item.title.lowercased().contains(searchText.lowercased())
+      // get current search text and proceed only if has at least a character inside
+      if let searchText = searchController.searchBar.text, searchText.count > 0 {
+        // get all the cats that match the title
+        let cats = MemoryDb.shared.data?.categories.filter({ cat -> Bool in
+          return cat.title.lowercased().contains(searchText.lowercased())
         })
+        
+        // get all projects that have the text inside in the title
+        let projs = MemoryDb.shared.data?.projects.filter({ proj -> Bool in
+          return proj.title.lowercased().contains(searchText.lowercased())
+        })
+        
+        // populate filtered results
+        filteredResults = Results(cats ?? [], projs ?? [])
       }
       
-      // always reload table at the end
+      // reload table
       table.reloadData()
-      
-    }*/
+    }
+    
   }
 }
 
@@ -174,16 +184,16 @@ extension CategoryListViewController: UITableViewDataSource {
   
   func numberOfSections(in tableView: UITableView) -> Int {
     // check if we have any project
-    return (searchController.isActive && filteredResults.1.count == 0) ? 1 :2
+    return (isSearchActive && filteredResults.1.count == 0) ? 1 :2
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
     switch section {
     case 0:
-      return searchController.isActive ? filteredResults.0.count : results.0.count
+      return isSearchActive ? filteredResults.0.count : results.0.count
     case 1:
-      return searchController.isActive ? filteredResults.1.count : results.1.count
+      return isSearchActive ? filteredResults.1.count : results.1.count
     default:
       return 0
     }
@@ -196,12 +206,12 @@ extension CategoryListViewController: UITableViewDataSource {
     switch indexPath.section {
     case 0:
       // get category
-      let category = searchController.isActive ? filteredResults.0[indexPath.row] : results.0[indexPath.row]
+      let category = isSearchActive ? filteredResults.0[indexPath.row] : results.0[indexPath.row]
       // generate cell
       return prepareCategoryCell(with: category, at: indexPath)
     case 1:
       // get project
-      let project = searchController.isActive ? filteredResults.1[indexPath.row] : results.1[indexPath.row]
+      let project = isSearchActive ? filteredResults.1[indexPath.row] : results.1[indexPath.row]
       return prepareProjectCell(with: project, at: indexPath)
       
     default:
