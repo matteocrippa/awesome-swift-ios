@@ -23,6 +23,11 @@ class ProjectDetailViewController: UIViewController {
     favoriteButton.addTarget(self, action: #selector(ProjectDetailViewController.favoriteToggle(_:)), for: .touchUpInside)
     return UIBarButtonItem(customView: favoriteButton)
   }
+  fileprivate var openButtonItem: UIBarButtonItem {
+    let btn = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(ProjectDetailViewController.openProject))
+    btn.tintColor = .awesomePink
+    return btn
+  }
   
   var project: Project?
     
@@ -39,7 +44,7 @@ class ProjectDetailViewController: UIViewController {
     navigationItem.largeTitleDisplayMode = .always
     
     // add bar button
-    navigationItem.rightBarButtonItem = favoriteButtonItem
+    navigationItem.rightBarButtonItems = [favoriteButtonItem, openButtonItem]
     
     
     // if project has a value
@@ -65,6 +70,20 @@ class ProjectDetailViewController: UIViewController {
     if var project = project {
       project.isFavorite = !project.isFavorite
       sender.isSelected = project.isFavorite
+    }
+  }
+  
+  @objc func openProject() {
+    if let project = project {
+      
+      // set up activity view controller
+      let textToShare = [ project.homepage ]
+      let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+      activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+      
+      // present the view controller
+      present(activityViewController, animated: true, completion: nil)
+      
     }
   }
   
