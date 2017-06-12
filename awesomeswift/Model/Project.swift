@@ -14,4 +14,14 @@ struct Project: Codable {
   let description: String
   let homepage: URL
   let tags: [String]?
+  
+  var isFavorite: Bool {
+    get {
+      return UserDefaults.standard.bool(forKey: title)
+    }
+    set {
+      UserDefaults.standard.set(newValue, forKey: title)
+    }
+    
+  }
 }
