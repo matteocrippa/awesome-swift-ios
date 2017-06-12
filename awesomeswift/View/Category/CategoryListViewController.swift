@@ -34,7 +34,7 @@ class CategoryListViewController: UIViewController {
     
     // set searchController
     searchController.searchResultsUpdater = self
-    searchController.searchBar.placeholder = "Filter categories"
+    searchController.searchBar.placeholder = "Filter"
     searchController.searchBar.tintColor = .awesomePink
     
     // if we are at root level
