@@ -63,6 +63,11 @@ class CategoryListViewController: UIViewController {
     navigationItem.hidesBackButton = false
     navigationItem.largeTitleDisplayMode = .always
     
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
     // if parent category has not been set
     if parentCategory == nil {
       // force get data by remote

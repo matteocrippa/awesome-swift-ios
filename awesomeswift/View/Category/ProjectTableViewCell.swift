@@ -25,7 +25,7 @@ class ProjectTableViewCell: UITableViewCell {
     self.project = project
     
     // set UI
-    textLabel?.text = "\(project.title)"
+    textLabel?.text = "\(project.isFavorite ? "★" : "") \(project.title)"
   
   }
   

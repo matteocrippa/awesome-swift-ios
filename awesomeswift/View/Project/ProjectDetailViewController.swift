@@ -12,12 +12,11 @@ class ProjectDetailViewController: UIViewController {
   
   @IBOutlet var webView: UIWebView!
   
-  fileprivate var favoriteButton = UIButton(type: .custom)
+  fileprivate var favoriteButton = UIButton(type: UIButtonType.plain)
   fileprivate var favoriteButtonItem: UIBarButtonItem {
-    let emptyImage = #imageLiteral(resourceName: "Star").withRenderingMode(.alwaysTemplate)
-    let fullImage = #imageLiteral(resourceName: "StarFull").withRenderingMode(.alwaysTemplate)
-    favoriteButton.setImage(emptyImage, for: .normal)
-    favoriteButton.setImage(fullImage, for: .selected)
+    favoriteButton.setTitle("☆", for: .normal)
+    favoriteButton.setTitle("✭", for: .selected)
+    favoriteButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 28)
     favoriteButton.tintColor = .awesomePink
     favoriteButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
     favoriteButton.addTarget(self, action: #selector(ProjectDetailViewController.favoriteToggle(_:)), for: .touchUpInside)
