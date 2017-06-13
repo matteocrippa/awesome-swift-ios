@@ -8,13 +8,13 @@ Official repository for [Awesome Swift](https://github.com/matteocrippa/awesome-
 - project detail can be shared via activity controller now;
 
 ## Screenshots
-!(Home)[]
+!(Home)[https://github.com/matteocrippa/awesome-swift-ios/blob/master/.github/home.png?raw=true]
 
-!(Category list)[]
+!(Category list)[https://github.com/matteocrippa/awesome-swift-ios/blob/master/.github/category-list.png?raw=true]
 
-!(Project list)[]
+!(Project list)[https://github.com/matteocrippa/awesome-swift-ios/blob/master/.github/projects-list.png?raw=true]
 
-!(Project detail)[]
+!(Project detail)[https://github.com/matteocrippa/awesome-swift-ios/blob/master/.github/project-detail.png?raw=true]
 
 
 ## Feel free to contribute
