@@ -1,0 +1,22 @@
+PODS:
+  - Exteptional (0.2.1)
+
+DEPENDENCIES:
+  - Exteptional (from `https://github.com/matteocrippa/Exteptional.git`, branch `swift4`)
+
+EXTERNAL SOURCES:
+  Exteptional:
+    :branch: swift4
+    :git: https://github.com/matteocrippa/Exteptional.git
+
+CHECKOUT OPTIONS:
+  Exteptional:
+    :commit: 07a54552a8ecad809d6f2580361d2239dc84070d
+    :git: https://github.com/matteocrippa/Exteptional.git
+
+SPEC CHECKSUMS:
+  Exteptional: e7c8df2c7c2198574b83a7fe3c101ce6209fe328
+
+PODFILE CHECKSUM: b83be95fc6ddb4f953c6e129200e8d7ec52d1b64
+
+COCOAPODS: 1.2.1
