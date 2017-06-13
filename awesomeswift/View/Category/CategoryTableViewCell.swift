@@ -24,20 +24,30 @@ class CategoryTableViewCell: UITableViewCell {
     // store category
     self.category = category
     
-    // set UI
-    textLabel?.text = "\(category.title)"
+    var subCatString = NSMutableAttributedString()
+    var countString = NSMutableAttributedString()
     
     // if we have a subcat
     if let subCats = category.subCategories, subCats.count > 0 {
       // append to label
-      textLabel?.text = textLabel?.text?.appending(" ▼")
+      subCatString = NSMutableAttributedString(string: " ▼", attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray])
     }
     
     // if we have projects
     if let projects = category.projects, projects.count > 0 {
       // append to label
-      textLabel?.text = textLabel?.text?.appending(" (\(projects.count))")
+      countString = NSMutableAttributedString(string: " (\(projects.count))")
     }
+    
+    let completeString = NSMutableAttributedString()
+    completeString.append(NSAttributedString(string: "\(category.title)"))
+    completeString.append(subCatString)
+    completeString.append(countString)
+    
+    // set UI
+    textLabel?.attributedText = completeString
+    
+    
   }
   
 }
