@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4827A3801F024A9D000A1910 /* AwesomeOpenSourceiOSAppApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4827A37F1F024A9D000A1910 /* AwesomeOpenSourceiOSAppApi.swift */; };
+		4827A3821F024ADD000A1910 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4827A3811F024ADD000A1910 /* URL+Extension.swift */; };
+		4827A3861F024C27000A1910 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEB51EED991E003EA135 /* CategoryListViewController.swift */; };
+		4827A3871F024C27000A1910 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AE9D1EED94D9003EA135 /* AppDelegate.swift */; };
+		4827A3881F024C27000A1910 /* AwesomeOpenSourceiOSAppApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4827A37F1F024A9D000A1910 /* AwesomeOpenSourceiOSAppApi.swift */; };
+		4827A3891F024C27000A1910 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEB01EED977E003EA135 /* Project.swift */; };
+		4827A38A1F024C27000A1910 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4827A3811F024ADD000A1910 /* URL+Extension.swift */; };
+		4827A38B1F024C27000A1910 /* MemoryDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEBC1EEDCD00003EA135 /* MemoryDb.swift */; };
+		4827A38C1F024C27000A1910 /* Awesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEBA1EED9F1B003EA135 /* Awesome.swift */; };
+		4827A38D1F024C27000A1910 /* AwesomeSwiftApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEB81EED9A6B003EA135 /* AwesomeSwiftApi.swift */; };
+		4827A38E1F024C27000A1910 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D90CB1EEEC6570045CB6C /* ProjectTableViewCell.swift */; };
+		4827A38F1F024C27000A1910 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEB21EED97F6003EA135 /* Category.swift */; };
+		4827A3901F024C27000A1910 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEBE1EEDD791003EA135 /* UIColor+Extension.swift */; };
+		4827A3911F024C27000A1910 /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEC71EEDE55E003EA135 /* ProjectDetailViewController.swift */; };
+		4827A3921F024C27000A1910 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F15DF51EEE953B0009D074 /* CategoryTableViewCell.swift */; };
+		4827A3941F024C27000A1910 /* Pods_awesomeswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D04FFE14CC53A48D49E4FAE /* Pods_awesomeswift.framework */; };
+		4827A3961F024C27000A1910 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEC31EEDE515003EA135 /* Project.storyboard */; };
+		4827A3971F024C27000A1910 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEA61EED94D9003EA135 /* LaunchScreen.storyboard */; };
+		4827A3981F024C27000A1910 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEA41EED94D9003EA135 /* Assets.xcassets */; };
+		4827A3991F024C27000A1910 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEA11EED94D9003EA135 /* Category.storyboard */; };
 		486D90CC1EEEC6570045CB6C /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D90CB1EEEC6570045CB6C /* ProjectTableViewCell.swift */; };
 		48D2AE9E1EED94D9003EA135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AE9D1EED94D9003EA135 /* AppDelegate.swift */; };
 		48D2AEA31EED94D9003EA135 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEA11EED94D9003EA135 /* Category.storyboard */; };
@@ -28,6 +48,10 @@
 /* Begin PBXFileReference section */
 		1D04FFE14CC53A48D49E4FAE /* Pods_awesomeswift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_awesomeswift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BFFE07F8394E09AB853ECD /* Pods-awesomeswift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-awesomeswift.release.xcconfig"; path = "Pods/Target Support Files/Pods-awesomeswift/Pods-awesomeswift.release.xcconfig"; sourceTree = "<group>"; };
+		4827A37F1F024A9D000A1910 /* AwesomeOpenSourceiOSAppApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeOpenSourceiOSAppApi.swift; sourceTree = "<group>"; };
+		4827A3811F024ADD000A1910 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		4827A39F1F024C27000A1910 /* awesomeopensource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = awesomeopensource.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4827A3A01F024C27000A1910 /* awesomeswift copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "awesomeswift copy-Info.plist"; path = "/Users/matteocrippa/Repositories/awesome-swift-ios/awesomeswift copy-Info.plist"; sourceTree = "<absolute>"; };
 		486D90CB1EEEC6570045CB6C /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
 		48D2AE9A1EED94D9003EA135 /* awesomeswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = awesomeswift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D2AE9D1EED94D9003EA135 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +73,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4827A3931F024C27000A1910 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4827A3941F024C27000A1910 /* Pods_awesomeswift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		48D2AE971EED94D9003EA135 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,6 +116,7 @@
 				48D2AE9B1EED94D9003EA135 /* Products */,
 				27C3FBD0A4163945CAB2456A /* Pods */,
 				41C0647CE32D2E680E172060 /* Frameworks */,
+				4827A3A01F024C27000A1910 /* awesomeswift copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				48D2AE9A1EED94D9003EA135 /* awesomeswift.app */,
+				4827A39F1F024C27000A1910 /* awesomeopensource.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				48D2AEB81EED9A6B003EA135 /* AwesomeSwiftApi.swift */,
+				4827A37F1F024A9D000A1910 /* AwesomeOpenSourceiOSAppApi.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -152,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				48D2AEBE1EEDD791003EA135 /* UIColor+Extension.swift */,
+				4827A3811F024ADD000A1910 /* URL+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -177,6 +213,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4827A3831F024C27000A1910 /* awesomeopensource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4827A39C1F024C27000A1910 /* Build configuration list for PBXNativeTarget "awesomeopensource" */;
+			buildPhases = (
+				4827A3841F024C27000A1910 /* [CP] Check Pods Manifest.lock */,
+				4827A3851F024C27000A1910 /* Sources */,
+				4827A3931F024C27000A1910 /* Frameworks */,
+				4827A3951F024C27000A1910 /* Resources */,
+				4827A39A1F024C27000A1910 /* [CP] Embed Pods Frameworks */,
+				4827A39B1F024C27000A1910 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = awesomeopensource;
+			productName = awesomeswift;
+			productReference = 4827A39F1F024C27000A1910 /* awesomeopensource.app */;
+			productType = "com.apple.product-type.application";
+		};
 		48D2AE991EED94D9003EA135 /* awesomeswift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48D2AEAC1EED94D9003EA135 /* Build configuration list for PBXNativeTarget "awesomeswift" */;
@@ -226,11 +282,23 @@
 			projectRoot = "";
 			targets = (
 				48D2AE991EED94D9003EA135 /* awesomeswift */,
+				4827A3831F024C27000A1910 /* awesomeopensource */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4827A3951F024C27000A1910 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4827A3961F024C27000A1910 /* Project.storyboard in Resources */,
+				4827A3971F024C27000A1910 /* LaunchScreen.storyboard in Resources */,
+				4827A3981F024C27000A1910 /* Assets.xcassets in Resources */,
+				4827A3991F024C27000A1910 /* Category.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		48D2AE981EED94D9003EA135 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,6 +326,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4827A3841F024C27000A1910 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4827A39A1F024C27000A1910 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-awesomeswift/Pods-awesomeswift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4827A39B1F024C27000A1910 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-awesomeswift/Pods-awesomeswift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9CEDFA39D28F75EDAF809240 /* [CP] Embed Pods Frameworks */ = {
@@ -293,13 +406,35 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4827A3851F024C27000A1910 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4827A3861F024C27000A1910 /* CategoryListViewController.swift in Sources */,
+				4827A3871F024C27000A1910 /* AppDelegate.swift in Sources */,
+				4827A3881F024C27000A1910 /* AwesomeOpenSourceiOSAppApi.swift in Sources */,
+				4827A3891F024C27000A1910 /* Project.swift in Sources */,
+				4827A38A1F024C27000A1910 /* URL+Extension.swift in Sources */,
+				4827A38B1F024C27000A1910 /* MemoryDb.swift in Sources */,
+				4827A38C1F024C27000A1910 /* Awesome.swift in Sources */,
+				4827A38D1F024C27000A1910 /* AwesomeSwiftApi.swift in Sources */,
+				4827A38E1F024C27000A1910 /* ProjectTableViewCell.swift in Sources */,
+				4827A38F1F024C27000A1910 /* Category.swift in Sources */,
+				4827A3901F024C27000A1910 /* UIColor+Extension.swift in Sources */,
+				4827A3911F024C27000A1910 /* ProjectDetailViewController.swift in Sources */,
+				4827A3921F024C27000A1910 /* CategoryTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		48D2AE961EED94D9003EA135 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				48D2AEB61EED991E003EA135 /* CategoryListViewController.swift in Sources */,
 				48D2AE9E1EED94D9003EA135 /* AppDelegate.swift in Sources */,
+				4827A3801F024A9D000A1910 /* AwesomeOpenSourceiOSAppApi.swift in Sources */,
 				48D2AEB11EED977E003EA135 /* Project.swift in Sources */,
+				4827A3821F024ADD000A1910 /* URL+Extension.swift in Sources */,
 				48D2AEBD1EEDCD00003EA135 /* MemoryDb.swift in Sources */,
 				48D2AEBB1EED9F1B003EA135 /* Awesome.swift in Sources */,
 				48D2AEB91EED9A6B003EA135 /* AwesomeSwiftApi.swift in Sources */,
@@ -333,6 +468,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4827A39D1F024C27000A1910 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF3ECE2B1820D5363F31EDD7 /* Pods-awesomeswift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F9FTQCB4H8;
+				INFOPLIST_FILE = "awesomeswift copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = boostco.de.awesomeswift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4827A39E1F024C27000A1910 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46BFFE07F8394E09AB853ECD /* Pods-awesomeswift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F9FTQCB4H8;
+				INFOPLIST_FILE = "awesomeswift copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = boostco.de.awesomeswift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		48D2AEAA1EED94D9003EA135 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -473,6 +638,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4827A39C1F024C27000A1910 /* Build configuration list for PBXNativeTarget "awesomeopensource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4827A39D1F024C27000A1910 /* Debug */,
+				4827A39E1F024C27000A1910 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		48D2AE951EED94D9003EA135 /* Build configuration list for PBXProject "awesomeswift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

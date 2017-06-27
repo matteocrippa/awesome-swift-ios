@@ -1,17 +1,17 @@
 //
-//  AwesomeSwiftApi.swift
+//  AwesomeOpenSourceiOSAppApi.swift
 //  awesomeswift
 //
-//  Created by Matteo Crippa on 11/06/2017.
+//  Created by Matteo Crippa on 27/06/2017.
 //  Copyright © 2017 Boostcode. All rights reserved.
 //
 
 import Foundation
 
-class AwesomeSwiftApi {
+class AwesomeOpenSourceiOSAppApi {
   class func getData() -> Data? {
     do {
-      let data = try Data(contentsOf: URL(string: "https://raw.githubusercontent.com/matteocrippa/awesome-swift/master/contents.json")!)
+      let data = try Data(contentsOf: URL(string: "https://raw.githubusercontent.com/dkhamsing/open-source-ios-apps/master/contents.json")!)
       return data
     } catch (let error) {
       print("🙅 \(error)")
