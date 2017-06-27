@@ -44,7 +44,11 @@ class CategoryListViewController: UIViewController {
     // if we are at root level
     if parentCategory == nil {
       // set title
-      title = "Awesome Swift"
+      #if AWESOMESWIFT
+        title = "Awesome Swift"
+      #else
+        title = "Awesome Open Source iOS Apps"
+      #endif
       
       // add refresh control
       table.refreshControl = refreshControl
@@ -108,13 +112,23 @@ extension CategoryListViewController {
     refreshControl.attributedTitle = NSAttributedString(string: MemoryDb.shared.lastUpdate.description)
     
     // retrieve data from remote
+    #if AWESOMESWIFT
     if let data = AwesomeSwiftApi.getData() {
+      // parse json
+      parseJson(from: data)
+    
+      // stop refreshing
+      refreshControl.endRefreshing()
+    }
+    #else
+    if let data = AwesomeOpenSourceiOSAppApi.getData() {
       // parse json
       parseJson(from: data)
       
       // stop refreshing
       refreshControl.endRefreshing()
     }
+    #endif
   }
 }
 

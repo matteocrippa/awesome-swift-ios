@@ -11,8 +11,8 @@ import Foundation
 struct Awesome: Codable {
   let title: String
   let header: String
-  let header_contributing: String
-  let ios_app_link: String
+  let header_contributing: String?
+  let ios_app_link: String?
   let categories: [Category]
   let projects: [Project]
 }
