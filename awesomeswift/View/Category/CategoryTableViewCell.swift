@@ -30,7 +30,7 @@ class CategoryTableViewCell: UITableViewCell {
     // if we have a subcat
     if let subCats = category.subCategories, subCats.count > 0 {
       // append to label
-      subCatString = NSMutableAttributedString(string: " ▼", attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+      subCatString = NSMutableAttributedString(string: " ▼", attributes: [NSAttributedStringKey.foregroundColor: UIColor.awesomePink])
     }
     
     // if we have projects
