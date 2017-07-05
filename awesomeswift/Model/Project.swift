@@ -18,7 +18,7 @@ struct Project: Codable {
   let itunes: String?
   let dateAdded: String?
   let suggestedBy: String?
-  let screenshots: [URL]?
+  let screenshots: [String]?
   
   /// Check if project is favorite locally (sync via iCloud)
   var isFavorite: Bool {
