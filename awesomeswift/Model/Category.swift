@@ -14,7 +14,7 @@ struct Category: Codable {
   let parent: String? // first level categories has not parent
   let description: String?
   
-  // improve datamodel with sub categories
+  // improved datamodel with sub categories
   var subCategories: [Category]? {
     return MemoryDb.shared.data?.categories.filter({ category -> Bool in
       return category.parent == id

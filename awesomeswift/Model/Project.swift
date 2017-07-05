@@ -15,6 +15,7 @@ struct Project: Codable {
   let homepage: URL
   let tags: [String]?
   
+  /// Check if project is favorite locally (synch via iCloud)
   var isFavorite: Bool {
     get {
       return UserDefaults.standard.bool(forKey: homepage.absoluteString)
