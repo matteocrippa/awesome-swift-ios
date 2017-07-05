@@ -113,21 +113,21 @@ extension CategoryListViewController {
     
     // retrieve data from remote
     #if AWESOMESWIFT
-    if let data = AwesomeSwiftApi.getData() {
-      // parse json
-      parseJson(from: data)
-    
-      // stop refreshing
-      refreshControl.endRefreshing()
-    }
+      if let data = AwesomeSwiftApi.getData() {
+        // parse json
+        parseJson(from: data)
+        
+        // stop refreshing
+        refreshControl.endRefreshing()
+      }
     #else
-    if let data = AwesomeOpenSourceiOSAppApi.getData() {
-      // parse json
-      parseJson(from: data)
-      
-      // stop refreshing
-      refreshControl.endRefreshing()
-    }
+      if let data = AwesomeOpenSourceiOSAppApi.getData() {
+        // parse json
+        parseJson(from: data)
+        
+        // stop refreshing
+        refreshControl.endRefreshing()
+      }
     #endif
   }
 }
@@ -203,7 +203,7 @@ extension CategoryListViewController: UITableViewDataSource {
   
   func numberOfSections(in tableView: UITableView) -> Int {
     // check if we have any project
-    return (isSearchActive && filteredResults.1.count == 0) ? 1 :2
+    return (isSearchActive && filteredResults.1.count == 0) ? 1 : 2
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -236,25 +236,30 @@ extension CategoryListViewController: UITableViewDataSource {
     default:
       return UITableViewCell()
     }
-        
+    
   }
   
   /// Category cell generator
   fileprivate func prepareCategoryCell(with category: Category, at indexPath: IndexPath) -> CategoryTableViewCell {
-    let cell = table.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CategoryTableViewCell
-    // setup category with proper method
-    cell.setup(with: category)
-    // return cell
-    return cell
+    if let cell = table.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryTableViewCell {
+      // setup category with proper method
+      cell.setup(with: category)
+      // return cell
+      return cell
+    }
+    return CategoryTableViewCell()
   }
   
   /// Project cell generator
   fileprivate func prepareProjectCell(with project: Project, at indexPath: IndexPath) -> ProjectTableViewCell {
-    let cell = table.dequeueReusableCell(withIdentifier: "projectCell", for: indexPath) as! ProjectTableViewCell
-    // setup project with proper method
-    cell.setup(with: project)
-    // return cell
-    return cell
+    if let cell = table.dequeueReusableCell(withIdentifier: "projectCell", for: indexPath) as? ProjectTableViewCell {
+      // setup project with proper method
+      cell.setup(with: project)
+      // return cell
+      return cell
+    }
+    return ProjectTableViewCell()
+    
   }
 }
 
@@ -266,26 +271,26 @@ extension CategoryListViewController: UITableViewDelegate {
     case 0:
       let category = results.0[indexPath.row]
       // get category view controller
-      let vc = UIStoryboard(name: "Category", bundle: nil).instantiateViewController(withIdentifier: "CategoryList") as! CategoryListViewController
-      // pass paramters for customizarion
-      // set title of the view according current category title
-      vc.title = category.title
-      // pass current category id for filtering
-      vc.parentCategory = category.id
-      // push the vc
-      navigationController?.pushViewController(vc, animated: true)
-      
+      if let vc = UIStoryboard(name: "Category", bundle: nil).instantiateViewController(withIdentifier: "CategoryList") as? CategoryListViewController {
+        // pass paramters for customizarion
+        // set title of the view according current category title
+        vc.title = category.title
+        // pass current category id for filtering
+        vc.parentCategory = category.id
+        // push the vc
+        navigationController?.pushViewController(vc, animated: true)
+      }
     case 1:
       let project = results.1[indexPath.row]
       
-      let vc = UIStoryboard(name: "Project", bundle: nil).instantiateInitialViewController() as! ProjectDetailViewController
-      // set title of view
-      vc.title = project.title
-      // pass project info
-      vc.project = project
-      // push the vc
-      navigationController?.pushViewController(vc, animated: true)
-      
+      if let vc = UIStoryboard(name: "Project", bundle: nil).instantiateInitialViewController() as? ProjectDetailViewController {
+        // set title of view
+        vc.title = project.title
+        // pass project info
+        vc.project = project
+        // push the vc
+        navigationController?.pushViewController(vc, animated: true)
+      }
     default:
       break
     }
