@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Exteptional
 
 class CategoryListViewController: UIViewController {
   
@@ -109,7 +110,8 @@ extension CategoryListViewController {
     refreshControl.beginRefreshing()
     
     // show latest update
-    refreshControl.attributedTitle = NSAttributedString(string: MemoryDb.shared.lastUpdate.description)
+    let lastUpdate = "last update: \(MemoryDb.shared.lastUpdate.toString(dateFormat: "dd/MM/yyyy @ HH:mm"))"
+    refreshControl.attributedTitle = NSAttributedString(string: lastUpdate)
     
     // retrieve data from remote
     #if AWESOMESWIFT
