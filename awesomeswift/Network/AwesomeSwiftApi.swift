@@ -11,7 +11,7 @@ import Foundation
 class AwesomeSwiftApi: AwesomeApi {
   class func getData() -> Data? {
     do {
-      let data = try Data(contentsOf: URL(string: "https://raw.githubusercontent.com/matteocrippa/awesome-swift/master/contents.json")!)
+      let data = try Data(contentsOf: URL(string: "https://raw.githubusercontent.com/matteocrippa/awesome-swift/master/database.json")!)
       return data
     } catch (let error) {
       print("🙅 \(error)")

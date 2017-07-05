@@ -10,3 +10,7 @@ end
 target 'awesomeswift' do
   shared_libs
 end
+
+target 'awesomeopensource' do
+  shared_libs
+end
