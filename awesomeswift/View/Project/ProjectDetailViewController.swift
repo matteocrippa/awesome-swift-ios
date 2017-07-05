@@ -49,7 +49,7 @@ class ProjectDetailViewController: UIViewController {
     // if project has a value
     if let project = project {
       // load webview
-      webView.loadRequest(URLRequest(url: project.homepage))
+      webView.loadRequest(URLRequest(url: project.source))
       
       // set if favorite
       favoriteButton.isSelected = project.isFavorite
@@ -76,7 +76,7 @@ class ProjectDetailViewController: UIViewController {
     if let project = project {
       
       // set up activity view controller
-      let textToShare = [ project.homepage ]
+      let textToShare = [ project.source ]
       let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
       activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
       

@@ -151,7 +151,11 @@ extension CategoryListViewController {
       
       // filter only projects that have parent
       var projects = data.projects.filter({ proj -> Bool in
-        return proj.category == parent
+        if let parent = parent {
+          return proj.categoryIds.contains(parent)
+        } else {
+          return false
+        }
       })
       
       // sort by title A-Z

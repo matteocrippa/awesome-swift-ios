@@ -24,7 +24,7 @@ struct Category: Codable {
   // improve data model with list of related projects
   var projects: [Project]? {
     return MemoryDb.shared.data?.projects.filter({ project -> Bool in
-      return project.category == id
+      return project.categoryIds.contains(id)
     })
   }
 }
