@@ -10,6 +10,7 @@ import UIKit
 
 class ProjectTableViewCell: UITableViewCell {
   
+  // public
   var project: Project?
   
   override func awakeFromNib() {

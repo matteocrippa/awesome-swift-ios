@@ -10,8 +10,11 @@ import UIKit
 
 class ProjectDetailViewController: UIViewController {
   
+  // public
   @IBOutlet var webView: UIWebView!
+  var project: Project?
   
+  // private
   fileprivate var favoriteButton = UIButton(type: .plain)
   fileprivate var favoriteButtonItem: UIBarButtonItem {
     favoriteButton.setTitle("☆", for: .normal)
@@ -27,9 +30,8 @@ class ProjectDetailViewController: UIViewController {
     btn.tintColor = .awesomePink
     return btn
   }
+  fileprivate let selectionFeedback = UISelectionFeedbackGenerator()
   
-  var project: Project?
-    
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -56,19 +58,20 @@ class ProjectDetailViewController: UIViewController {
     }
     
   }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-  }
-  
+    
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
   
+}
+
+// MARK: - Actions
+extension ProjectDetailViewController {
   @objc func favoriteToggle(_ sender: UIButton) {
     if var project = project {
       project.isFavorite = !project.isFavorite
       sender.isSelected = project.isFavorite
+      selectionFeedback.selectionChanged()
     }
   }
   
@@ -85,6 +88,5 @@ class ProjectDetailViewController: UIViewController {
       
     }
   }
-  
 }
 
