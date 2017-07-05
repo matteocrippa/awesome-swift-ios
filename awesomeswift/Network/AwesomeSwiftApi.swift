@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AwesomeSwiftApi {
+class AwesomeSwiftApi: AwesomeApi {
   class func getData() -> Data? {
     do {
       let data = try Data(contentsOf: URL(string: "https://raw.githubusercontent.com/matteocrippa/awesome-swift/master/contents.json")!)
@@ -19,13 +19,4 @@ class AwesomeSwiftApi {
     }
   }
   
-  class func getProjectReadme(url: URL) -> String? {
-    do {
-      let data = try Data(contentsOf: url.readmeURL!)
-      return String(data: data, encoding: .utf8)
-    } catch (let error) {
-      print("🙅 \(error)")
-      return nil
-    }
-  }
 }

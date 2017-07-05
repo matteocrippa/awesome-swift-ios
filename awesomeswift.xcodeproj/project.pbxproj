@@ -27,6 +27,8 @@
 		4827A3971F024C27000A1910 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEA61EED94D9003EA135 /* LaunchScreen.storyboard */; };
 		4827A3981F024C27000A1910 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEA41EED94D9003EA135 /* Assets.xcassets */; };
 		4827A3991F024C27000A1910 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEA11EED94D9003EA135 /* Category.storyboard */; };
+		482CBDD81F0D142B00088FE5 /* AwesomeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482CBDD71F0D142B00088FE5 /* AwesomeApi.swift */; };
+		482CBDD91F0D142B00088FE5 /* AwesomeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482CBDD71F0D142B00088FE5 /* AwesomeApi.swift */; };
 		486D90CC1EEEC6570045CB6C /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D90CB1EEEC6570045CB6C /* ProjectTableViewCell.swift */; };
 		48D2AE9E1EED94D9003EA135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AE9D1EED94D9003EA135 /* AppDelegate.swift */; };
 		48D2AEA31EED94D9003EA135 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEA11EED94D9003EA135 /* Category.storyboard */; };
@@ -52,6 +54,7 @@
 		4827A3811F024ADD000A1910 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		4827A39F1F024C27000A1910 /* awesomeopensource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = awesomeopensource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4827A3A01F024C27000A1910 /* awesomeswift copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "awesomeswift copy-Info.plist"; path = "/Users/matteocrippa/Repositories/awesome-swift-ios/awesomeswift copy-Info.plist"; sourceTree = "<absolute>"; };
+		482CBDD71F0D142B00088FE5 /* AwesomeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeApi.swift; sourceTree = "<group>"; };
 		486D90CB1EEEC6570045CB6C /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
 		48D2AE9A1EED94D9003EA135 /* awesomeswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = awesomeswift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D2AE9D1EED94D9003EA135 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +170,7 @@
 		48D2AEB71EED9A57003EA135 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				482CBDD71F0D142B00088FE5 /* AwesomeApi.swift */,
 				48D2AEB81EED9A6B003EA135 /* AwesomeSwiftApi.swift */,
 				4827A37F1F024A9D000A1910 /* AwesomeOpenSourceiOSAppApi.swift */,
 			);
@@ -416,6 +420,7 @@
 				4827A3891F024C27000A1910 /* Project.swift in Sources */,
 				4827A38A1F024C27000A1910 /* URL+Extension.swift in Sources */,
 				4827A38B1F024C27000A1910 /* MemoryDb.swift in Sources */,
+				482CBDD91F0D142B00088FE5 /* AwesomeApi.swift in Sources */,
 				4827A38C1F024C27000A1910 /* Awesome.swift in Sources */,
 				4827A38D1F024C27000A1910 /* AwesomeSwiftApi.swift in Sources */,
 				4827A38E1F024C27000A1910 /* ProjectTableViewCell.swift in Sources */,
@@ -436,6 +441,7 @@
 				48D2AEB11EED977E003EA135 /* Project.swift in Sources */,
 				4827A3821F024ADD000A1910 /* URL+Extension.swift in Sources */,
 				48D2AEBD1EEDCD00003EA135 /* MemoryDb.swift in Sources */,
+				482CBDD81F0D142B00088FE5 /* AwesomeApi.swift in Sources */,
 				48D2AEBB1EED9F1B003EA135 /* Awesome.swift in Sources */,
 				48D2AEB91EED9A6B003EA135 /* AwesomeSwiftApi.swift in Sources */,
 				486D90CC1EEEC6570045CB6C /* ProjectTableViewCell.swift in Sources */,

@@ -12,7 +12,7 @@ class ProjectDetailViewController: UIViewController {
   
   @IBOutlet var webView: UIWebView!
   
-  fileprivate var favoriteButton = UIButton(type: UIButtonType.plain)
+  fileprivate var favoriteButton = UIButton(type: .plain)
   fileprivate var favoriteButtonItem: UIBarButtonItem {
     favoriteButton.setTitle("☆", for: .normal)
     favoriteButton.setTitle("✭", for: .selected)
