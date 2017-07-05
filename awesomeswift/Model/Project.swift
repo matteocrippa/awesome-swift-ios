@@ -11,7 +11,7 @@ import Foundation
 struct Project: Codable {
   let title: String
   let categoryIds: [String]
-  let description: String
+  let description: String?
   let source: URL
   let tags: [String]?
   let license: String?
