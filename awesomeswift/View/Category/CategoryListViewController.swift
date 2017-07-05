@@ -31,7 +31,8 @@ class CategoryListViewController: UIViewController {
     return refreshControl
   }()
   fileprivate var isSearchActive: Bool {
-    return filteredResults.0.count > 0 || filteredResults.1.count > 0
+    //return filteredResults.0.count > 0 || filteredResults.1.count > 0
+    return (searchController.isActive && searchController.searchBar.text != "")
   }
   
   override func viewDidLoad() {
@@ -41,6 +42,9 @@ class CategoryListViewController: UIViewController {
     searchController.searchResultsUpdater = self
     searchController.searchBar.placeholder = "Filter"
     searchController.searchBar.tintColor = .awesomePink
+    searchController.dimsBackgroundDuringPresentation = false
+    searchController.hidesNavigationBarDuringPresentation = false
+    definesPresentationContext = true
     
     // if we are at root level
     if parentCategory == nil {
@@ -171,18 +175,39 @@ extension CategoryListViewController {
 }
 
 
+// MARK: - Search
+/*extension ProjectDetailViewController: UISearchResultsUpdating {
+  
+  func updateSearchResults(for searchController: UISearchController) {
+    if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+      
+      // clear filtered first
+      filtered.removeAll()
+      
+      // if search has at least a character
+      if searchText.count > 0 {
+        filtered = poi.filter({ item -> Bool in
+          return item.name.lowercased().contains(searchText.lowercased())
+        })
+      }
+      
+    }
+    table.reloadData()
+  }
+  
+}*/
+
 // MARK: - UISearchBar Delegate
 extension CategoryListViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     
     // check if search is active
-    if searchController.isActive && searchController.searchBar.text != nil {
+    if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+    //if searchController.isActive && searchController.searchBar.text != nil {
       
       // force clear the results first
       filteredResults = Results([], [])
       
-      // get current search text and proceed only if has at least a character inside
-      if let searchText = searchController.searchBar.text, searchText.count > 0 {
         // get all the cats that match the title
         let cats = MemoryDb.shared.data?.categories.filter({ cat -> Bool in
           return cat.title.lowercased().contains(searchText.lowercased())
@@ -195,12 +220,12 @@ extension CategoryListViewController: UISearchResultsUpdating {
         
         // populate filtered results
         filteredResults = Results(cats ?? [], projs ?? [])
-      }
       
-      // reload table
-      table.reloadData()
     }
     
+    // reload table
+    table.reloadData()
+
   }
 }
 
