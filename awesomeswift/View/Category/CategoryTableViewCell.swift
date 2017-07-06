@@ -30,13 +30,23 @@ class CategoryTableViewCell: UITableViewCell {
     // if we have a subcat
     if let subCats = category.subCategories, subCats.count > 0 {
       // append to label
-      subCatString = NSMutableAttributedString(string: " ▼", attributes: [NSAttributedStringKey.foregroundColor: UIColor.awesomePink])
+      subCatString = NSMutableAttributedString(
+        string: " ▼",
+        attributes: [
+          NSAttributedStringKey.foregroundColor: UIColor.awesomePink
+        ]
+      )
     }
     
     // if we have projects
-    if let projects = category.projects, projects.count > 0 {
+    else if let projects = category.projects, projects.count > 0 {
       // append to label
-      countString = NSMutableAttributedString(string: " (\(projects.count))")
+      countString = NSMutableAttributedString(
+        string: " (\(projects.count))",
+        attributes: [
+          NSAttributedStringKey.font: UIFont.systemFont(ofSize: 11)
+        ]
+      )
     }
     
     let completeString = NSMutableAttributedString()
