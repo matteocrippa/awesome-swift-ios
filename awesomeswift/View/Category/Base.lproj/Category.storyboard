@@ -75,7 +75,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="fMy-tM-kiv">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="L0P-jt-5qv">
                             <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="r6e-jy-Dyt">
-                                <rect key="frame" x="234" y="5" width="125" height="35"/>
+                                <rect key="frame" x="234" y="0.0" width="125" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="All"/>

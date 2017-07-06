@@ -9,6 +9,11 @@
 import UIKit
 import Exteptional
 
+fileprivate enum FilterType: Int {
+  case all = 0
+  case favorite = 1
+}
+
 class CategoryListViewController: UIViewController {
 
   /// public
@@ -215,9 +220,25 @@ extension CategoryListViewController: UITableViewDataSource {
 
     switch section {
     case 0:
+      // check if favorite filter is active
+      if filterItems.selectedSegmentIndex == FilterType.favorite.rawValue {
+        // return 0 categories can't be favorite
+        return 0
+      }
       return isSearchActive ? filteredResults.0.count : results.0.count
     case 1:
-      return isSearchActive ? filteredResults.1.count : results.1.count
+      // is search active?
+      var items = isSearchActive ? filteredResults.1 : results.1
+      
+      // filter if favorite is on
+      if filterItems.selectedSegmentIndex == FilterType.favorite.rawValue {
+        items = items.filter({ proj -> Bool in
+          return proj.isFavorite
+        })
+      }
+      // return items
+      return items.count
+      
     default:
       return 0
     }
@@ -234,8 +255,18 @@ extension CategoryListViewController: UITableViewDataSource {
       // generate cell
       return prepareCategoryCell(with: category, at: indexPath)
     case 1:
+      // get the right array of items
+      var items = isSearchActive ? filteredResults.1 : results.1
+      
+      // filter by favorite if it is needed
+      if filterItems.selectedSegmentIndex == FilterType.favorite.rawValue {
+        items = items.filter({ proj -> Bool in
+          return proj.isFavorite
+        })
+      }
+      
       // get project
-      let project = isSearchActive ? filteredResults.1[indexPath.row] : results.1[indexPath.row]
+      let project = items[indexPath.row]
       return prepareProjectCell(with: project, at: indexPath)
 
     default:
@@ -307,6 +338,8 @@ extension CategoryListViewController: UITableViewDelegate {
 // MARK: = Actions
 extension CategoryListViewController {
   @IBAction func changeFilterItems(sender: UISegmentedControl) {
-    print(sender.selectedSegmentIndex)
+    //print(sender.selectedSegmentIndex)
+    // reload table
+    table.reloadData()
   }
 }
