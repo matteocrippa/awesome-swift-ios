@@ -37,8 +37,8 @@ class CategoryTableViewCell: UITableViewCell {
         ]
       )
     }
-    
-    // if we have projects
+      
+      // if we have projects
     else if let projects = category.projects, projects.count > 0 {
       // append to label
       countString = NSMutableAttributedString(

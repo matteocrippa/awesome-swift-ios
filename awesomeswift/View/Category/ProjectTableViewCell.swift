@@ -26,7 +26,12 @@ class ProjectTableViewCell: UITableViewCell {
     self.project = project
     
     // set UI
-    let starString = NSAttributedString(string: "\(project.isFavorite ? "★" : "") ", attributes: [NSAttributedStringKey.foregroundColor: UIColor.awesomePink])
+    let starString = NSAttributedString(
+      string: "\(project.isFavorite ? "★" : "") ",
+      attributes: [
+        NSAttributedStringKey.foregroundColor: UIColor.awesomePink
+      ]
+    )
     let titleString = NSAttributedString(string: "\(project.title)")
     
     let completeString = NSMutableAttributedString()

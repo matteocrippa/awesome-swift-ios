@@ -13,6 +13,7 @@ class CategoryListViewController: UIViewController {
   
   /// public
   @IBOutlet weak var table: UITableView!
+  @IBOutlet weak var filterItems: UISegmentedControl!
   var parentCategory: String?
   
   /// private
@@ -31,7 +32,6 @@ class CategoryListViewController: UIViewController {
     return refreshControl
   }()
   fileprivate var isSearchActive: Bool {
-    //return filteredResults.0.count > 0 || filteredResults.1.count > 0
     return (searchController.isActive && searchController.searchBar.text != "")
   }
   
@@ -114,7 +114,7 @@ extension CategoryListViewController {
     refreshControl.beginRefreshing()
     
     // show latest update
-    let lastUpdate = "last update: \(MemoryDb.shared.lastUpdate.toString(dateFormat: "dd/MM/yyyy @ HH:mm"))"
+    let lastUpdate = "⏱ last update: \(MemoryDb.shared.lastUpdate.toString(dateFormat: "dd/MM/yyyy @ HH:mm"))"
     refreshControl.attributedTitle = NSAttributedString(string: lastUpdate)
     
     // retrieve data from remote
@@ -174,36 +174,32 @@ extension CategoryListViewController {
   
 }
 
-
 // MARK: - UISearchBar Delegate
 extension CategoryListViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     
     // check if search is active
     if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-    //if searchController.isActive && searchController.searchBar.text != nil {
-      
       // force clear the results first
       filteredResults = Results([], [])
       
-        // get all the cats that match the title
-        let cats = MemoryDb.shared.data?.categories.filter({ cat -> Bool in
-          return cat.title.lowercased().contains(searchText.lowercased())
-        })
-        
-        // get all projects that have the text inside in the title
-        let projs = MemoryDb.shared.data?.projects.filter({ proj -> Bool in
-          return proj.title.lowercased().contains(searchText.lowercased())
-        })
-        
-        // populate filtered results
-        filteredResults = Results(cats ?? [], projs ?? [])
+      // get all the cats that match the title
+      let cats = MemoryDb.shared.data?.categories.filter({ cat -> Bool in
+        return cat.title.lowercased().contains(searchText.lowercased())
+      })
       
+      // get all projects that have the text inside in the title
+      let projs = MemoryDb.shared.data?.projects.filter({ proj -> Bool in
+        return proj.title.lowercased().contains(searchText.lowercased())
+      })
+      
+      // populate filtered results
+      filteredResults = Results(cats ?? [], projs ?? [])
     }
     
     // reload table
     table.reloadData()
-
+    
   }
 }
 
@@ -253,7 +249,6 @@ extension CategoryListViewController: UITableViewDataSource {
     if let cell = table.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryTableViewCell {
       // setup category with proper method
       cell.setup(with: category)
-      // return cell
       return cell
     }
     return CategoryTableViewCell()
@@ -306,5 +301,12 @@ extension CategoryListViewController: UITableViewDelegate {
     
     // force deselect row
     tableView.deselectRow(at: indexPath, animated: true)
+  }
+}
+
+// MARK: = Actions
+extension CategoryListViewController {
+  @IBAction func changeFilterItems(sender: UISegmentedControl) {
+    print(sender.selectedSegmentIndex)
   }
 }
