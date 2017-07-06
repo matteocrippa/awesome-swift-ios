@@ -55,7 +55,7 @@
 		4827A37F1F024A9D000A1910 /* AwesomeOpenSourceiOSAppApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeOpenSourceiOSAppApi.swift; sourceTree = "<group>"; };
 		4827A3811F024ADD000A1910 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		4827A39F1F024C27000A1910 /* awesomeopensource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = awesomeopensource.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4827A3A01F024C27000A1910 /* awesomeswift copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "awesomeswift copy-Info.plist"; path = "/Users/matteocrippa/Repositories/awesome-swift-ios/awesomeswift copy-Info.plist"; sourceTree = "<absolute>"; };
+		4827A3A01F024C27000A1910 /* awesomeos.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = awesomeos.plist; path = "/Users/matteocrippa/Repositories/awesome-swift-ios/awesomeswift/awesomeos.plist"; sourceTree = "<absolute>"; };
 		482CBDD71F0D142B00088FE5 /* AwesomeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeApi.swift; sourceTree = "<group>"; };
 		486D90CB1EEEC6570045CB6C /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
 		48D2AE9A1EED94D9003EA135 /* awesomeswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = awesomeswift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,7 +127,6 @@
 				48D2AE9B1EED94D9003EA135 /* Products */,
 				27C3FBD0A4163945CAB2456A /* Pods */,
 				41C0647CE32D2E680E172060 /* Frameworks */,
-				4827A3A01F024C27000A1910 /* awesomeswift copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +150,7 @@
 				48D2AEA41EED94D9003EA135 /* Assets.xcassets */,
 				48D2AEA61EED94D9003EA135 /* LaunchScreen.storyboard */,
 				48D2AEA91EED94D9003EA135 /* Info.plist */,
+				4827A3A01F024C27000A1910 /* awesomeos.plist */,
 			);
 			path = awesomeswift;
 			sourceTree = "<group>";
@@ -493,7 +493,7 @@
 					"COCOAPODS=1",
 					"AWESOMEOS=1",
 				);
-				INFOPLIST_FILE = "awesomeswift copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/awesomeswift/awesomeos.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = boostco.de.awesomeosios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,7 +513,7 @@
 					"COCOAPODS=1",
 					"AWESOMEOS=1",
 				);
-				INFOPLIST_FILE = "awesomeswift copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/awesomeswift/awesomeos.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = boostco.de.awesomeosios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
