@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Exteptional:
-    :commit: 1bcefbbc61339f57ad2a7a2106a6becdd10c1f84
+    :commit: b82d5830f0f58f01c35560bd019edc8868d22f8a
     :git: https://github.com/matteocrippa/Exteptional.git
 
 SPEC CHECKSUMS:
