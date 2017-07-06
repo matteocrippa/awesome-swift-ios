@@ -19,7 +19,7 @@ struct Project: Codable {
   let dateAdded: String?
   let suggestedBy: String?
   let screenshots: [String]?
-  
+
   /// Check if project is favorite locally (sync via iCloud)
   var isFavorite: Bool {
     get {
@@ -29,15 +29,15 @@ struct Project: Codable {
       UserDefaults.standard.set(newValue, forKey: source.absoluteString)
       UserDefaults.standard.synchronize()
     }
-    
+
   }
-  
+
   // fix naming conventions from JSON
   // date_added
   // suggested_by
   // category-ids
   enum CodingKeys: String, CodingKey {
-    
+
     case title
     case description
     case source
@@ -45,7 +45,7 @@ struct Project: Codable {
     case license
     case itunes
     case screenshots
-    
+
     case dateAdded = "date_added"
     case suggestedBy = "suggested_by"
     case categoryIds = "category-ids"

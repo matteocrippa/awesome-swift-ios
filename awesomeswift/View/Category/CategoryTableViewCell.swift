@@ -9,24 +9,24 @@
 import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
-  
+
   var category: Category?
-  
+
   override func awakeFromNib() {
     super.awakeFromNib()
   }
-  
+
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
   }
-  
+
   func setup(with category: Category) {
     // store category
     self.category = category
-    
+
     var subCatString = NSMutableAttributedString()
     var countString = NSMutableAttributedString()
-    
+
     // if we have a subcat
     if let subCats = category.subCategories, subCats.count > 0 {
       // append to label
@@ -37,7 +37,7 @@ class CategoryTableViewCell: UITableViewCell {
         ]
       )
     }
-      
+
       // if we have projects
     else if let projects = category.projects, projects.count > 0 {
       // append to label
@@ -48,16 +48,15 @@ class CategoryTableViewCell: UITableViewCell {
         ]
       )
     }
-    
+
     let completeString = NSMutableAttributedString()
     completeString.append(NSAttributedString(string: "\(category.title)"))
     completeString.append(subCatString)
     completeString.append(countString)
-    
+
     // set UI
     textLabel?.attributedText = completeString
-    
-    
+
   }
-  
+
 }

@@ -18,5 +18,5 @@ class AwesomeSwiftApi: AwesomeApi {
       return nil
     }
   }
-  
+
 }

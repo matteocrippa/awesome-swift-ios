@@ -9,11 +9,11 @@
 import UIKit
 
 class ProjectDetailViewController: UIViewController {
-  
+
   // public
   @IBOutlet var webView: UIWebView!
   var project: Project?
-  
+
   // private
   fileprivate var favoriteButton = UIButton(type: .plain)
   fileprivate var favoriteButtonItem: UIBarButtonItem {
@@ -31,38 +31,37 @@ class ProjectDetailViewController: UIViewController {
     return btn
   }
   fileprivate let selectionFeedback = UISelectionFeedbackGenerator()
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     // set large title
     navigationController?.navigationBar.prefersLargeTitles = true
     navigationController?.navigationBar.titleTextAttributes = [
       NSAttributedStringKey.foregroundColor.rawValue: UIColor.awesomePink
     ]
     navigationController?.navigationBar.tintColor = .awesomePink
-    
+
     navigationItem.largeTitleDisplayMode = .always
-    
+
     // add bar button
     navigationItem.rightBarButtonItems = [favoriteButtonItem, openButtonItem]
-    
-    
+
     // if project has a value
     if let project = project {
       // load webview
       webView.loadRequest(URLRequest(url: project.source))
-      
+
       // set if favorite
       favoriteButton.isSelected = project.isFavorite
     }
-    
+
   }
-    
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
-  
+
 }
 
 // MARK: - Actions
@@ -74,19 +73,18 @@ extension ProjectDetailViewController {
       selectionFeedback.selectionChanged()
     }
   }
-  
+
   @objc func openProject() {
     if let project = project {
-      
+
       // set up activity view controller
       let textToShare = [ project.source ]
       let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
       activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-      
+
       // present the view controller
       present(activityViewController, animated: true, completion: nil)
-      
+
     }
   }
 }
-

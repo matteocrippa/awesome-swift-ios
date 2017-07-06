@@ -9,22 +9,22 @@
 import UIKit
 
 class ProjectTableViewCell: UITableViewCell {
-  
+
   // public
   var project: Project?
-  
+
   override func awakeFromNib() {
     super.awakeFromNib()
   }
-  
+
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
   }
-  
+
   func setup(with project: Project) {
     // store project
     self.project = project
-    
+
     // set UI
     let starString = NSAttributedString(
       string: "\(project.isFavorite ? "★" : "") ",
@@ -33,14 +33,13 @@ class ProjectTableViewCell: UITableViewCell {
       ]
     )
     let titleString = NSAttributedString(string: "\(project.title)")
-    
+
     let completeString = NSMutableAttributedString()
     completeString.append(starString)
     completeString.append(titleString)
-    
+
     textLabel?.attributedText = completeString
-    
+
   }
-  
-  
+
 }

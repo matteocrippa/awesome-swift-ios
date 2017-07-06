@@ -10,12 +10,12 @@ import UIKit
 import Exteptional
 
 class CategoryListViewController: UIViewController {
-  
+
   /// public
   @IBOutlet weak var table: UITableView!
   @IBOutlet weak var filterItems: UISegmentedControl!
   var parentCategory: String?
-  
+
   /// private
   fileprivate var results = Results([], []) {
     didSet {
@@ -23,7 +23,7 @@ class CategoryListViewController: UIViewController {
     }
   }
   fileprivate var filteredResults = Results([], [])
-  
+
   fileprivate let searchController = UISearchController(searchResultsController: nil)
   fileprivate lazy var refreshControl: UIRefreshControl = {
     let refreshControl = UIRefreshControl()
@@ -34,10 +34,10 @@ class CategoryListViewController: UIViewController {
   fileprivate var isSearchActive: Bool {
     return (searchController.isActive && searchController.searchBar.text != "")
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     // set searchController
     searchController.searchResultsUpdater = self
     searchController.searchBar.placeholder = "Filter"
@@ -45,7 +45,7 @@ class CategoryListViewController: UIViewController {
     searchController.dimsBackgroundDuringPresentation = false
     searchController.hidesNavigationBarDuringPresentation = false
     definesPresentationContext = true
-    
+
     // if we are at root level
     if parentCategory == nil {
       // set title
@@ -54,29 +54,29 @@ class CategoryListViewController: UIViewController {
       #else
         title = "Awesome Open Source iOS Apps"
       #endif
-      
+
       // add refresh control
       table.refreshControl = refreshControl
     }
-    
+
     // set large title
     navigationController?.navigationBar.prefersLargeTitles = true
     navigationController?.navigationBar.titleTextAttributes = [
       NSAttributedStringKey.foregroundColor.rawValue: UIColor.awesomePink
     ]
     navigationController?.navigationBar.tintColor = .awesomePink
-    
+
     // set extra stuff for navigation bar
     navigationItem.searchController = searchController
     navigationItem.hidesSearchBarWhenScrolling = false
     navigationItem.hidesBackButton = false
     navigationItem.largeTitleDisplayMode = .always
-    
+
   }
-  
+
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    
+
     // if parent category has not been set
     if parentCategory == nil {
       // force get data by remote
@@ -86,16 +86,16 @@ class CategoryListViewController: UIViewController {
       results = getResults(for: parentCategory)
     }
   }
-  
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
-  
+
 }
 
 // MARK: - Networking
 extension CategoryListViewController {
-  
+
   fileprivate func parseJson(from data: Data) {
     do {
       let decoded = try JSONDecoder().decode(Awesome.self, from: data)
@@ -107,22 +107,22 @@ extension CategoryListViewController {
       print("🙅 \(error)")
     }
   }
-  
+
   @objc fileprivate func getRemoteData() {
-    
+
     // start refreshing
     refreshControl.beginRefreshing()
-    
+
     // show latest update
     let lastUpdate = "⏱ last update: \(MemoryDb.shared.lastUpdate.toString(dateFormat: "dd/MM/yyyy @ HH:mm"))"
     refreshControl.attributedTitle = NSAttributedString(string: lastUpdate)
-    
+
     // retrieve data from remote
     #if AWESOMESWIFT
       if let data = AwesomeSwiftApi.getData() {
         // parse json
         parseJson(from: data)
-        
+
         // stop refreshing
         refreshControl.endRefreshing()
       }
@@ -130,7 +130,7 @@ extension CategoryListViewController {
       if let data = AwesomeOpenSourceiOSAppApi.getData() {
         // parse json
         parseJson(from: data)
-        
+
         // stop refreshing
         refreshControl.endRefreshing()
       }
@@ -140,19 +140,19 @@ extension CategoryListViewController {
 
 // MARK: - Database (Memory)
 extension CategoryListViewController {
-  
+
   func getResults(for parent: String?) -> Results {
     if let data = MemoryDb.shared.data {
       // filter only categories that have parent
       var cats = data.categories.filter({ category -> Bool in
         return category.parent == parent
       })
-      
+
       // sort by title A-Z
       cats = cats.sorted(by: { (a, b) -> Bool in
         return a.title.lowercased() < b.title.lowercased()
       })
-      
+
       // filter only projects that have parent
       var projects = data.projects.filter({ proj -> Bool in
         if let parent = parent {
@@ -161,58 +161,58 @@ extension CategoryListViewController {
           return false
         }
       })
-      
+
       // sort by title A-Z
       projects = projects.sorted(by: { (a, b) -> Bool in
         return a.title.lowercased() < b.title.lowercased()
       })
-      
+
       return Results(cats, projects)
     }
     return Results([], [])
   }
-  
+
 }
 
 // MARK: - UISearchBar Delegate
 extension CategoryListViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
-    
+
     // check if search is active
     if let searchText = searchController.searchBar.text, !searchText.isEmpty {
       // force clear the results first
       filteredResults = Results([], [])
-      
+
       // get all the cats that match the title
       let cats = MemoryDb.shared.data?.categories.filter({ cat -> Bool in
         return cat.title.lowercased().contains(searchText.lowercased())
       })
-      
+
       // get all projects that have the text inside in the title
       let projs = MemoryDb.shared.data?.projects.filter({ proj -> Bool in
         return proj.title.lowercased().contains(searchText.lowercased())
       })
-      
+
       // populate filtered results
       filteredResults = Results(cats ?? [], projs ?? [])
     }
-    
+
     // reload table
     table.reloadData()
-    
+
   }
 }
 
 // MARK: - UITableView Data Source
 extension CategoryListViewController: UITableViewDataSource {
-  
+
   func numberOfSections(in tableView: UITableView) -> Int {
     // check if we have any project
     return (isSearchActive && filteredResults.1.count == 0) ? 1 : 2
   }
-  
+
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
+
     switch section {
     case 0:
       return isSearchActive ? filteredResults.0.count : results.0.count
@@ -221,11 +221,11 @@ extension CategoryListViewController: UITableViewDataSource {
     default:
       return 0
     }
-    
+
   }
-  
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
+
     // filter according section
     switch indexPath.section {
     case 0:
@@ -237,13 +237,13 @@ extension CategoryListViewController: UITableViewDataSource {
       // get project
       let project = isSearchActive ? filteredResults.1[indexPath.row] : results.1[indexPath.row]
       return prepareProjectCell(with: project, at: indexPath)
-      
+
     default:
       return UITableViewCell()
     }
-    
+
   }
-  
+
   /// Category cell generator
   fileprivate func prepareCategoryCell(with category: Category, at indexPath: IndexPath) -> CategoryTableViewCell {
     if let cell = table.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryTableViewCell {
@@ -253,7 +253,7 @@ extension CategoryListViewController: UITableViewDataSource {
     }
     return CategoryTableViewCell()
   }
-  
+
   /// Project cell generator
   fileprivate func prepareProjectCell(with project: Project, at indexPath: IndexPath) -> ProjectTableViewCell {
     if let cell = table.dequeueReusableCell(withIdentifier: "projectCell", for: indexPath) as? ProjectTableViewCell {
@@ -263,14 +263,14 @@ extension CategoryListViewController: UITableViewDataSource {
       return cell
     }
     return ProjectTableViewCell()
-    
+
   }
 }
 
 // MARK: - UITableView Deleage
 extension CategoryListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+
     switch indexPath.section {
     case 0:
       let category = results.0[indexPath.row]
@@ -286,7 +286,7 @@ extension CategoryListViewController: UITableViewDelegate {
       }
     case 1:
       let project = results.1[indexPath.row]
-      
+
       if let vc = UIStoryboard(name: "Project", bundle: nil).instantiateInitialViewController() as? ProjectDetailViewController {
         // set title of view
         vc.title = project.title
@@ -298,7 +298,7 @@ extension CategoryListViewController: UITableViewDelegate {
     default:
       break
     }
-    
+
     // force deselect row
     tableView.deselectRow(at: indexPath, animated: true)
   }
