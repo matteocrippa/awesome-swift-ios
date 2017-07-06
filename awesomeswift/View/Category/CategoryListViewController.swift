@@ -175,28 +175,6 @@ extension CategoryListViewController {
 }
 
 
-// MARK: - Search
-/*extension ProjectDetailViewController: UISearchResultsUpdating {
-  
-  func updateSearchResults(for searchController: UISearchController) {
-    if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-      
-      // clear filtered first
-      filtered.removeAll()
-      
-      // if search has at least a character
-      if searchText.count > 0 {
-        filtered = poi.filter({ item -> Bool in
-          return item.name.lowercased().contains(searchText.lowercased())
-        })
-      }
-      
-    }
-    table.reloadData()
-  }
-  
-}*/
-
 // MARK: - UISearchBar Delegate
 extension CategoryListViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
