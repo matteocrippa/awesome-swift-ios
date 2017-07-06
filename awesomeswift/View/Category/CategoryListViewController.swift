@@ -9,6 +9,7 @@
 import UIKit
 import Exteptional
 
+// Supported filter types
 fileprivate enum FilterType: Int {
   case all = 0
   case favorite = 1
@@ -301,7 +302,7 @@ extension CategoryListViewController: UITableViewDataSource {
 // MARK: - UITableView Deleage
 extension CategoryListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
     switch indexPath.section {
     case 0:
       let category = results.0[indexPath.row]
