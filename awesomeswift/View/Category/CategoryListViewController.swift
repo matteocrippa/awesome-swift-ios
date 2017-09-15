@@ -68,7 +68,7 @@ class CategoryListViewController: UIViewController {
     // set large title
     navigationController?.navigationBar.prefersLargeTitles = true
     navigationController?.navigationBar.titleTextAttributes = [
-      NSAttributedStringKey.foregroundColor.rawValue: UIColor.awesomePink
+      NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.awesomePink
     ]
     navigationController?.navigationBar.tintColor = .awesomePink
 
