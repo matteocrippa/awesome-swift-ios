@@ -15,7 +15,7 @@ class ProjectDetailViewController: UIViewController {
   var project: Project?
 
   // private
-  fileprivate var favoriteButton = UIButton(type: .custom)
+  fileprivate var favoriteButton = UIButton(type: UIButtonType.system)
   fileprivate var favoriteButtonItem: UIBarButtonItem {
     favoriteButton.setTitle("☆", for: .normal)
     favoriteButton.setTitle("✭", for: .selected)
