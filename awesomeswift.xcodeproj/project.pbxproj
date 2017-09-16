@@ -43,9 +43,8 @@
 		48D2AEC41EEDE515003EA135 /* Project.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D2AEC31EEDE515003EA135 /* Project.storyboard */; };
 		48D2AEC81EEDE55E003EA135 /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D2AEC71EEDE55E003EA135 /* ProjectDetailViewController.swift */; };
 		48F15DF61EEE953B0009D074 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F15DF51EEE953B0009D074 /* CategoryTableViewCell.swift */; };
-		557DC59ADD3A445D96936D26 /* Pods_awesomeswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D04FFE14CC53A48D49E4FAE /* Pods_awesomeswift.framework */; };
 		5F763794F35911D9C3CD40D0 /* Pods_awesomeopensource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD252138D9EDC8878E1FC39F /* Pods_awesomeopensource.framework */; };
-		EB27039AA765966B57D178C1 /* Pods_awesomeswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D04FFE14CC53A48D49E4FAE /* Pods_awesomeswift.framework */; };
+		9D69524DE596CB0FAC98E574 /* Pods_awesomeswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D04FFE14CC53A48D49E4FAE /* Pods_awesomeswift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,8 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB27039AA765966B57D178C1 /* Pods_awesomeswift.framework in Frameworks */,
-				557DC59ADD3A445D96936D26 /* Pods_awesomeswift.framework in Frameworks */,
+				9D69524DE596CB0FAC98E574 /* Pods_awesomeswift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
