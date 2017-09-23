@@ -19,6 +19,8 @@ struct Project: Codable {
   let dateAdded: String?
   let suggestedBy: String?
   let screenshots: [String]?
+  let stars: Int?
+
 
   /// Check if project is favorite locally (sync via iCloud)
   var isFavorite: Bool {
@@ -45,6 +47,7 @@ struct Project: Codable {
     case license
     case itunes
     case screenshots
+    case stars
 
     case dateAdded = "date_added"
     case suggestedBy = "suggested_by"
