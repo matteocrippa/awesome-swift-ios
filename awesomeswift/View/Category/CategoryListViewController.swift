@@ -318,15 +318,27 @@ extension CategoryListViewController: UITableViewDelegate {
       }
     case 1:
       let project = results.1[indexPath.row]
-
-      if let vc = UIStoryboard(name: "Project", bundle: nil).instantiateInitialViewController() as? ProjectDetailViewController {
-        // set title of view
-        vc.title = project.title
-        // pass project info
-        vc.project = project
-        // push the vc
-        navigationController?.pushViewController(vc, animated: true)
-      }
+      
+      #if AWESOMESWIFT
+        if let vc = UIStoryboard(name: "Project", bundle: nil).instantiateInitialViewController() as? ProjectDetailViewController {
+          // set title of view
+          vc.title = project.title
+          // pass project info
+          vc.project = project
+          // push the vc
+          navigationController?.pushViewController(vc, animated: true)
+        }
+      #else // ProjectNativeCard
+        if let vc = UIStoryboard(name: "Project", bundle: nil).instantiateViewController(withIdentifier: "ProjectNativeCard") as? ProjectDetailNativeViewController {
+          // set title of view
+          vc.title = project.title
+          // pass project info
+          vc.project = project
+          // push the vc
+          navigationController?.pushViewController(vc, animated: true)
+        }
+      #endif
+      
     default:
       break
     }
