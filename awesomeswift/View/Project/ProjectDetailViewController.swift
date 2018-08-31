@@ -50,7 +50,9 @@ class ProjectDetailViewController: UIViewController {
     // if project has a value
     if let project = project {
       // load webview
-      webView.loadRequest(URLRequest(url: project.source))
+        if let url = URL(string: project.source) {
+            webView.loadRequest(URLRequest(url: url))
+        }
 
       // set if favorite
       favoriteButton.isSelected = project.isFavorite
