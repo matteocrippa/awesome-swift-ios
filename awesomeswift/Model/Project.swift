@@ -12,7 +12,7 @@ struct Project: Codable {
   let title: String
   let categoryIds: [String]
   let description: String?
-  let source: URL
+  let source: String
   let tags: [String]?
   let license: String?
   let itunes: String?
@@ -25,10 +25,10 @@ struct Project: Codable {
   /// Check if project is favorite locally (sync via iCloud)
   var isFavorite: Bool {
     get {
-      return UserDefaults.standard.bool(forKey: source.absoluteString)
+      return UserDefaults.standard.bool(forKey: source)
     }
     set {
-      UserDefaults.standard.set(newValue, forKey: source.absoluteString)
+      UserDefaults.standard.set(newValue, forKey: source)
       UserDefaults.standard.synchronize()
     }
 

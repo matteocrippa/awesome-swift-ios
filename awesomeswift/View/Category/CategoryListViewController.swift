@@ -104,6 +104,7 @@ class CategoryListViewController: UIViewController {
 extension CategoryListViewController {
 
     fileprivate func parseJson(from data: Data) {
+        print(String(data: data, encoding: .utf8))
         do {
             let decoded = try JSONDecoder().decode(Awesome.self, from: data)
             MemoryDb.shared.data = decoded
