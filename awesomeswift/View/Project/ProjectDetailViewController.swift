@@ -15,7 +15,7 @@ class ProjectDetailViewController: UIViewController {
   var project: Project?
 
   // private
-  fileprivate var favoriteButton = UIButton(type: UIButtonType.system)
+  fileprivate var favoriteButton = UIButton(type: UIButton.ButtonType.system)
   fileprivate var favoriteButtonItem: UIBarButtonItem {
     favoriteButton.setTitle("☆", for: .normal)
     favoriteButton.setTitle("✭", for: .selected)
@@ -38,7 +38,7 @@ class ProjectDetailViewController: UIViewController {
     // set large title
     navigationController?.navigationBar.prefersLargeTitles = true
     navigationController?.navigationBar.titleTextAttributes = [
-      NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.awesomePink
+      NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.awesomePink
     ]
     navigationController?.navigationBar.tintColor = .awesomePink
 

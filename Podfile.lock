@@ -1,5 +1,5 @@
 PODS:
-  - Exteptional (0.2.6)
+  - Exteptional (0.3.0)
 
 DEPENDENCIES:
   - Exteptional (from `https://github.com/matteocrippa/Exteptional.git`)
@@ -10,11 +10,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Exteptional:
-    :commit: 14dc9182547161386d3e1921ef0244aeb5ff8d36
+    :commit: 572c2159f80fdb335f829f46a43a9efecd5c91ae
     :git: https://github.com/matteocrippa/Exteptional.git
 
 SPEC CHECKSUMS:
-  Exteptional: f019dc1d7ad09468270887de9fba2a4e915733ca
+  Exteptional: 1f957d12982fb04463046caa2f473a2354c91063
 
 PODFILE CHECKSUM: e67ac87ede6b7417f2c95113d64c40b36ddfe281
 

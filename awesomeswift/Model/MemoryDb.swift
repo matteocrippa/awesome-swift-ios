@@ -10,7 +10,7 @@ import Foundation
 
 class MemoryDb {
   /// Shared instance
-  open static var shared = MemoryDb()
+  public static var shared = MemoryDb()
   private init() {}
 
   /// Contains data
