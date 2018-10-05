@@ -1,21 +1,21 @@
 PODS:
-  - Exteptional (0.2.6)
+  - Exteptional (0.3.0)
 
 DEPENDENCIES:
-  - Exteptional (from `https://github.com/matteocrippa/Exteptional.git`)
+  - Exteptional (from `https://github.com/serhii-londar/Exteptional.git`)
 
 EXTERNAL SOURCES:
   Exteptional:
-    :git: https://github.com/matteocrippa/Exteptional.git
+    :git: https://github.com/serhii-londar/Exteptional.git
 
 CHECKOUT OPTIONS:
   Exteptional:
-    :commit: 14dc9182547161386d3e1921ef0244aeb5ff8d36
-    :git: https://github.com/matteocrippa/Exteptional.git
+    :commit: a8f3fe891d4f93c8cac05ce8981b81e736927792
+    :git: https://github.com/serhii-londar/Exteptional.git
 
 SPEC CHECKSUMS:
-  Exteptional: f019dc1d7ad09468270887de9fba2a4e915733ca
+  Exteptional: 1f957d12982fb04463046caa2f473a2354c91063
 
-PODFILE CHECKSUM: e67ac87ede6b7417f2c95113d64c40b36ddfe281
+PODFILE CHECKSUM: 393bd3dba22cf51186aba70b8206986c35771c97
 
 COCOAPODS: 1.5.3

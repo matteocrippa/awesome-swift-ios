@@ -33,7 +33,7 @@ class CategoryTableViewCell: UITableViewCell {
       subCatString = NSMutableAttributedString(
         string: " ▼",
         attributes: [
-          NSAttributedStringKey.foregroundColor: UIColor.awesomePink
+          NSAttributedString.Key.foregroundColor: UIColor.awesomePink
         ]
       )
     }
@@ -44,7 +44,7 @@ class CategoryTableViewCell: UITableViewCell {
       countString = NSMutableAttributedString(
         string: " (\(projects.count))",
         attributes: [
-          NSAttributedStringKey.font: UIFont.systemFont(ofSize: 11)
+          NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11)
         ]
       )
     }
