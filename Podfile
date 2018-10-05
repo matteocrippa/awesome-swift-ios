@@ -4,7 +4,7 @@ use_frameworks!
 inhibit_all_warnings!
 
 def shared_libs
-  pod 'Exteptional', :git => 'https://github.com/serhii-londar/Exteptional.git'
+  pod 'Exteptional', :git => 'https://github.com/matteocrippa/Exteptional.git'
 end
 
 target 'awesomeswift' do
