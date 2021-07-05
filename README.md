@@ -1,5 +1,5 @@
 # Awesome Swift iOS
-Official repository for [Awesome Swift](https://github.com/matteocrippa/awesome-swift) and [Awesome Open Source iOS App](https://github.com/dkhamsing/open-source-ios-apps) iOS App
+Ex Official repository for [Awesome Swift](https://github.com/matteocrippa/awesome-swift) and [Awesome Open Source iOS App](https://github.com/dkhamsing/open-source-ios-apps) iOS App
 
 ## Changelog
 
